@@ -4,6 +4,10 @@ services:
     build:
       context: .
       dockerfile: ./workspaces/api/Dockerfile
+  frontend:
+    build:
+      context: .
+      dockerfile: ./workspaces/frontend/Dockerfile
   proxy:
     build:
       context: .
