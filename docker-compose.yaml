@@ -1,0 +1,12 @@
+version: "3.3"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./workspaces/api/Dockerfile
+  proxy:
+    build:
+      context: .
+      dockerfile: ./workspaces/proxy/Dockerfile
+    ports:
+      - 80:80
