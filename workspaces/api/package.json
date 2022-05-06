@@ -6,7 +6,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "dev": "nodemon",
+    "start": "node dist/index.js"
+  },
+  "nodemonConfig": {
+    "pollingInterval": 100,
+    "legacyWatch": true,
+    "watch": [
+      "src"
+    ],
+    "ext": "ts",
+    "exec": "node -r ts-node/register --inspect  ./src/index.ts"
   },
   "author": "",
   "license": "ISC",

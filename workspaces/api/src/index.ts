@@ -1,6 +1,7 @@
 import { createServer } from 'http';
 import { bootstrap as sequelizeBootstrap } from './persistance';
 import { bootstrap as koaBootstrap } from './server';
+import config from './config'
 
 async function bootstrap() {
   const koaServer = await koaBootstrap();
@@ -17,7 +18,7 @@ async function bootstrap() {
 
   const httpServer = createServer(koaServer.callback());
 
-  httpServer.listen(3000);
+  httpServer.listen(config.port);
   return httpServer;
 }
 
