@@ -5,11 +5,12 @@ COPY package.json package.json
 COPY workspaces/api workspaces/api
 
 RUN yarn --production=false
-RUN yarn workspace api build
+RUN yarn workspaces run build
 
 
 
 FROM node:16-alpine as server
+WORKDIR /app
 
 COPY package.json package.json
 COPY --from=0 /app/workspaces/api workspaces/api
