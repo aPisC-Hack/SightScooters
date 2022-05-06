@@ -1,3 +1,3 @@
 FROM nginx
 
-COPY nginx.conf /etc/nginx/conf.d/crafthack.conf
+COPY workspaces/proxy/nginx.conf /etc/nginx/conf.d/default.conf

@@ -17,6 +17,6 @@ RUN yarn --production=false
 
 ENV NODE_PORT=80
 
-CMD yarn start
+CMD yarn workspace api start
 
 
