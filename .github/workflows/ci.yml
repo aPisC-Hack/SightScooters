@@ -31,4 +31,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Build project
-        run: yarn workspaces run build
+        run: CI=false yarn workspaces run build
