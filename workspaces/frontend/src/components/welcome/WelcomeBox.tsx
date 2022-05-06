@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, ButtonGroup } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Center, Container } from "@chakra-ui/react";
 import { IWelcomeBox } from "./IWelcomeBox";
 
 type Props = {};
@@ -18,27 +18,33 @@ export default function WelcomeBox({ }: Props) {
         console.log("button 4 Pushed")
     };
   return (
-    <Box padding={2} bgColor="cyan" borderRadius={4} width="100%" height={"100%"} >
-        <ButtonGroup variant='solid' spacing='2'>
-        <Button colorScheme="blue" bg='blue.900' size="lg" height='150px' width='150px' borderRadius={50} margin="5"
-        onClick={openTripBrowsing} >
-            Trip Browsing
-        </Button>
-        <Button colorScheme="blue" bg='blue.900' size="lg" height='150px' width='150px'borderRadius={50} margin="5"  
-        onClick={button2Pushed}>
-            Button2
-        </Button>
-        </ButtonGroup>
-        <ButtonGroup variant='solid' spacing='2'>
-        <Button colorScheme="blue" bg='blue.900' size="lg" height='150px' width='150px'borderRadius={50} margin="5" 
-        onClick={button3Pushed}>
-            Button3
-        </Button>
-        <Button colorScheme="blue" bg='blue.900' size="lg" height='150px' width='150px'borderRadius={50} margin="5" 
-        onClick={button4Pushed}>
-            Button4
-        </Button>
-        </ButtonGroup>
-    </Box>
+    <Container width="100%" height="100%" bg="cyan">
+        <Box padding="5" alignItems="center">
+            <Center>
+                <ButtonGroup variant='solid'>
+                    <Button colorScheme="blue" bg='blue.900' size="lg"  height='150px' width='40' borderRadius={50} margin="3"
+                    onClick={openTripBrowsing} >
+                        Trip Browsing
+                    </Button>
+                    <Button colorScheme="blue" bg='blue.900' size="lg"  height='150px' width='40' borderRadius={50} margin="3"  
+                    onClick={button2Pushed}>
+                        Button2
+                    </Button>
+                </ButtonGroup>
+            </Center>
+            <Center>
+                <ButtonGroup variant='solid' margin='0'>
+                    <Button colorScheme="blue" bg='blue.900' size="lg"  height='150px' width='40' borderRadius={50} margin="3" 
+                    onClick={button3Pushed}>
+                        Button3 
+                    </Button>
+                    <Button colorScheme="blue" bg='blue.900' size="lg"  height='150px' width='40' borderRadius={50} margin="3" 
+                    onClick={button4Pushed}>
+                        Button4
+                    </Button>
+                </ButtonGroup>
+            </Center>
+        </Box>
+    </Container>
   );
 }
