@@ -4,13 +4,16 @@ services:
     build:
       context: .
       dockerfile: ./workspaces/api/Dockerfile
+    restart: always
   frontend:
     build:
       context: .
       dockerfile: ./workspaces/frontend/Dockerfile
+    restart: always
   proxy:
     build:
       context: .
       dockerfile: ./workspaces/proxy/Dockerfile
+    restart: always
     ports:
       - 80:80
