@@ -3,10 +3,10 @@ import { Box, VStack, Tag } from "@chakra-ui/react";
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import LandmarkHeader from "./LandmarkHeader";
 import { IoMapSharp } from "react-icons/io5";
-import { ILandmarkData } from "./ILandmarkData";
+import { ILandmark } from "../../../../common/src/ILandmark";
 
 type Props = {
-  landmark: ILandmarkData;
+  landmark: ILandmark;
 };
 
 export default function LandmarkBox({ landmark }: Props) {

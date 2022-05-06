@@ -1,9 +1,7 @@
 import React from "react";
 import { Box, VStack } from "@chakra-ui/react";
+import { ITour } from "common";
 import LandmarkBox from "./LandmarkBox";
-import { ILandmarkBox } from "./ILandmarkBox";
-import TestImage from "./test.jpg";
-import { ITour } from "./ITour";
 
 type Props = {};
 
@@ -13,10 +11,11 @@ export default function LandmarkContainer({}: Props) {
     name: "TourName",
     landmarks: [
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Halászbástya",
         description:
           "19. századi erőd 7 kilátótornyokkal, panorámás kilátással és kávézóval a teraszon.",
-        coordinates: {
+        coordinate: {
           longitude: 47.501958,
           latitude: 19.034959,
         },
@@ -32,10 +31,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Budavári Palota",
         description:
           "A Magyar Nemzeti Galéria fényűző helyszíne, ahol a gótikus oltároktól a szobrokig sok minden látható.",
-        coordinates: {
+        coordinate: {
           longitude: 47.496444,
           latitude: 19.039577,
         },
@@ -51,10 +51,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Hősök tere",
         description:
           "Az UNESCO világörökség részét képezi, a Magyarországot alapító 7 törzs vezéreinek szobrát vonultatja fel.",
-        coordinates: {
+        coordinate: {
           longitude: 47.514907,
           latitude: 19.077734,
         },
@@ -70,10 +71,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Vajdahunyad Vára",
         description:
           "Ez az 1896-ban elkészült vár részletgazdag formavilágával a magyar építészet fejlődését mutatja be.",
-        coordinates: {
+        coordinate: {
           longitude: 47.514549,
           latitude: 19.082684,
         },
@@ -89,10 +91,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Városliget",
         description:
           "Nagy park pálmaházzal, koncerthelyszínekkel és múzeumokkal, emellett fás sétányokkal és rétekkel.",
-        coordinates: {
+        coordinate: {
           longitude: 47.513235,
           latitude: 19.085618,
         },
@@ -108,10 +111,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Halászbástya",
         description:
           "19. századi erőd 7 kilátótornyokkal, panorámás kilátással és kávézóval a teraszon.",
-        coordinates: {
+        coordinate: {
           longitude: 47.501958,
           latitude: 19.034959,
         },
@@ -127,10 +131,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Budavári Palota",
         description:
           "A Magyar Nemzeti Galéria fényűző helyszíne, ahol a gótikus oltároktól a szobrokig sok minden látható.",
-        coordinates: {
+        coordinate: {
           longitude: 47.496444,
           latitude: 19.039577,
         },
@@ -146,10 +151,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Hősök tere",
         description:
           "Az UNESCO világörökség részét képezi, a Magyarországot alapító 7 törzs vezéreinek szobrát vonultatja fel.",
-        coordinates: {
+        coordinate: {
           longitude: 47.514907,
           latitude: 19.077734,
         },
@@ -165,10 +171,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Vajdahunyad Vára",
         description:
           "Ez az 1896-ban elkészült vár részletgazdag formavilágával a magyar építészet fejlődését mutatja be.",
-        coordinates: {
+        coordinate: {
           longitude: 47.514549,
           latitude: 19.082684,
         },
@@ -184,10 +191,11 @@ export default function LandmarkContainer({}: Props) {
         ],
       },
       {
+        id: "7a0b2d99-ac3b-422f-a334-b78a10abc3c3",
         name: "Városliget",
         description:
           "Nagy park pálmaházzal, koncerthelyszínekkel és múzeumokkal, emellett fás sétányokkal és rétekkel.",
-        coordinates: {
+        coordinate: {
           longitude: 47.513235,
           latitude: 19.085618,
         },

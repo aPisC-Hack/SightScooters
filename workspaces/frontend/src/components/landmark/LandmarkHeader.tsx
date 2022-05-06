@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, HStack, Tag } from "@chakra-ui/react";
-import { ILandmarkData } from "./ILandmarkData";
 import { StarIcon } from "@chakra-ui/icons";
+import { ILandmark } from "common";
 
 type Props = {
-  landmarkData: ILandmarkData;
+  landmarkData: ILandmark;
 };
 
 export default function LandmarkHeader({ landmarkData }: Props) {
