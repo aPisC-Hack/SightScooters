@@ -1,33 +1,63 @@
 import React from "react";
-import { Box, VStack, Tag } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  IconButton,
+  VStack,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import LandmarkHeader from "./LandmarkHeader";
 import { IoMapSharp } from "react-icons/io5";
 import { ILandmarkData } from "./ILandmarkData";
+import MapBox from "../map/MapBox";
 
 type Props = {
   landmark: ILandmarkData;
 };
 
 export default function LandmarkBox({ landmark }: Props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const handleClose = () => {
+    onClose();
+  };
   return (
-    <Box padding={2} bg="blue.100" borderRadius={4} position="relative">
-      <Tag
+    <Box padding={3} bg="blue.100" borderRadius={4} position="relative">
+      <IconButton
+        aria-label="Show map"
+        icon={<IoMapSharp />}
         position="absolute"
-        right={2}
-        top={2}
+        right={0}
+        top={0}
         margin={1}
-        colorScheme="green"
+        colorScheme="gray"
         padding={2}
         fontSize="xl"
         borderRadius="50%"
-      >
-        <IoMapSharp />
-      </Tag>
+        onClick={onOpen}
+      />
       <VStack width="100%">
         <LandmarkPictureBox images={landmark.pictures} />
         <LandmarkHeader landmarkData={landmark} />
       </VStack>
+      <Modal isOpen={isOpen} onClose={handleClose} size="4xl">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody padding={2}>
+            <ModalCloseButton zIndex={999} />
+            <Box height="80vh">
+              <MapBox />
+            </Box>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }
