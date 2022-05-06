@@ -1,5 +1,6 @@
 {
   "name": "crafthack22",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/aPisC/crafthack22/issues"
   },
-  "homepage": "https://github.com/aPisC/crafthack22#readme"
+  "homepage": "https://github.com/aPisC/crafthack22#readme",
+  "workspaces": [
+    "workspaces/*"
+  ]
 }
