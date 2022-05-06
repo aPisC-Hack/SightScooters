@@ -1,7 +1,13 @@
 export interface ILandmarkData {
-    title: string;
+    name: string;
+    description: string;
+    coordinates: {
+        longitude: number;
+        latitude: number;
+    }
+    address: string;
     rating: number;
     ratingCount: number;
-    distance: number;
+    pictures: Array<string>;
     time: number;
 }

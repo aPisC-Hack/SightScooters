@@ -11,20 +11,20 @@ export default function LandmarkHeader({ landmarkData }: Props) {
   return (
     <Box w="100%">
       <HStack>
-        <Box fontSize="xl">{landmarkData.title}</Box>
+        <Box fontSize="xl">{landmarkData.name}</Box>
       </HStack>
       <HStack justifyContent="space-between">
         <Tag
           fontWeight="semibold"
           colorScheme={
-            landmarkData.distance < 10
+            landmarkData.time < 10
               ? "green"
-              : landmarkData.distance < 20
+              : landmarkData.time < 20
               ? "orange"
               : "red"
           }
         >
-          {landmarkData.distance} km - {landmarkData.time} perc
+          {landmarkData.time} perc
         </Tag>
         <HStack>
           <Box>

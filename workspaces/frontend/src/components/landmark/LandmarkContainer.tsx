@@ -3,69 +3,207 @@ import { Box, VStack } from "@chakra-ui/react";
 import LandmarkBox from "./LandmarkBox";
 import { ILandmarkBox } from "./ILandmarkBox";
 import TestImage from "./test.jpg";
+import { ITour } from "./ITour";
 
 type Props = {};
 
 export default function LandmarkContainer({}: Props) {
-  const landmarks: Array<ILandmarkBox> = [
-    {
-      images: [
-        TestImage,
-        TestImage,
-        TestImage,
-        TestImage,
-        TestImage,
-        TestImage,
-      ],
-      landmarkData: {
-        title: "Landmark title",
-        rating: 4.2,
-        distance: 21,
+  const tour: ITour = {
+    time: 30,
+    name: "TourName",
+    landmarks: [
+      {
+        name: "Halászbástya",
+        description:
+          "19. századi erőd 7 kilátótornyokkal, panorámás kilátással és kávézóval a teraszon.",
+        coordinates: {
+          longitude: 47.501958,
+          latitude: 19.034959,
+        },
+        address: "Budapest, Szentháromság tér, 1014",
+        rating: 4.8,
         ratingCount: 666,
-        time: 45,
+        time: 30,
+        pictures: [
+          "HalaszBastya/halaszbastya1.jpg",
+          "HalaszBastya/halaszbastya2.jpg",
+          "HalaszBastya/halaszbastya3.jpg",
+          "HalaszBastya/halaszbastya4.jpg",
+        ],
       },
-    },
-    {
-      images: [TestImage, TestImage, TestImage],
-      landmarkData: {
-        title: "Landmark title",
-        rating: 4.2,
-        distance: 12,
+      {
+        name: "Budavári Palota",
+        description:
+          "A Magyar Nemzeti Galéria fényűző helyszíne, ahol a gótikus oltároktól a szobrokig sok minden látható.",
+        coordinates: {
+          longitude: 47.496444,
+          latitude: 19.039577,
+        },
+        address: "Budapest, Szent György tér 2, 1014",
+        rating: 4.7,
         ratingCount: 666,
-        time: 45,
+        time: 20,
+        pictures: [
+          "BudavariPalota/budavariPalota1.jpg",
+          "BudavariPalota/budavariPalota1.jpg",
+          "BudavariPalota/budavariPalota1.jpg",
+          "BudavariPalota/budavariPalota1.jpg",
+        ],
       },
-    },
-    {
-      images: [TestImage, TestImage, TestImage, TestImage],
-      landmarkData: {
-        title: "Landmark title",
-        rating: 4.2,
-        distance: 42,
+      {
+        name: "Hősök tere",
+        description:
+          "Az UNESCO világörökség részét képezi, a Magyarországot alapító 7 törzs vezéreinek szobrát vonultatja fel.",
+        coordinates: {
+          longitude: 47.514907,
+          latitude: 19.077734,
+        },
+        address: "Budapest, Hősök tere, 1146",
+        rating: 4.7,
         ratingCount: 666,
-        time: 45,
+        time: 12,
+        pictures: [
+          "HosokTere/hosokTere1.jpg",
+          "HosokTere/hosokTere2.jpg",
+          "HosokTere/hosokTere3.jpg",
+          "HosokTere/hosokTere4.jpg",
+        ],
       },
-    },
-    {
-      images: [TestImage, TestImage, TestImage, TestImage],
-      landmarkData: {
-        title: "Landmark title",
-        rating: 4.2,
-        distance: 21,
+      {
+        name: "Vajdahunyad Vára",
+        description:
+          "Ez az 1896-ban elkészült vár részletgazdag formavilágával a magyar építészet fejlődését mutatja be.",
+        coordinates: {
+          longitude: 47.514549,
+          latitude: 19.082684,
+        },
+        address: "Budapest, Vajdahunyad stny., 1146",
+        rating: 4.7,
         ratingCount: 666,
-        time: 45,
+        time: 5,
+        pictures: [
+          "VajdahunyadVara/vajdahunyadVara1.jpg",
+          "VajdahunyadVara/vajdahunyadVara1.jpg",
+          "VajdahunyadVara/vajdahunyadVara1.jpg",
+          "VajdahunyadVara/vajdahunyadVara1.jpg",
+        ],
       },
-    },
-    {
-      images: [TestImage, TestImage, TestImage, TestImage],
-      landmarkData: {
-        title: "Landmark title",
-        rating: 4.2,
-        distance: 3,
+      {
+        name: "Városliget",
+        description:
+          "Nagy park pálmaházzal, koncerthelyszínekkel és múzeumokkal, emellett fás sétányokkal és rétekkel.",
+        coordinates: {
+          longitude: 47.513235,
+          latitude: 19.085618,
+        },
+        address: "Budapest, Kós Károly stny., 1146",
+        rating: 4.6,
         ratingCount: 666,
-        time: 45,
+        time: 56,
+        pictures: [
+          "Varosliget/varosliget1.jpg",
+          "Varosliget/varosliget1.jpg",
+          "Varosliget/varosliget1.jpg",
+          "Varosliget/varosliget1.jpg",
+        ],
       },
-    },
-  ];
+      {
+        name: "Halászbástya",
+        description:
+          "19. századi erőd 7 kilátótornyokkal, panorámás kilátással és kávézóval a teraszon.",
+        coordinates: {
+          longitude: 47.501958,
+          latitude: 19.034959,
+        },
+        address: "Budapest, Szentháromság tér, 1014",
+        rating: 4.8,
+        ratingCount: 666,
+        time: 8,
+        pictures: [
+          "HalaszBastya/halaszbastya1.jpg",
+          "HalaszBastya/halaszbastya2.jpg",
+          "HalaszBastya/halaszbastya3.jpg",
+          "HalaszBastya/halaszbastya4.jpg",
+        ],
+      },
+      {
+        name: "Budavári Palota",
+        description:
+          "A Magyar Nemzeti Galéria fényűző helyszíne, ahol a gótikus oltároktól a szobrokig sok minden látható.",
+        coordinates: {
+          longitude: 47.496444,
+          latitude: 19.039577,
+        },
+        address: "Budapest, Szent György tér 2, 1014",
+        rating: 4.7,
+        ratingCount: 666,
+        time: 22,
+        pictures: [
+          "BudavariPalota/budavariPalota1.jpg",
+          "BudavariPalota/budavariPalota1.jpg",
+          "BudavariPalota/budavariPalota1.jpg",
+          "BudavariPalota/budavariPalota1.jpg",
+        ],
+      },
+      {
+        name: "Hősök tere",
+        description:
+          "Az UNESCO világörökség részét képezi, a Magyarországot alapító 7 törzs vezéreinek szobrát vonultatja fel.",
+        coordinates: {
+          longitude: 47.514907,
+          latitude: 19.077734,
+        },
+        address: "Budapest, Hősök tere, 1146",
+        rating: 4.7,
+        ratingCount: 666,
+        time: 42,
+        pictures: [
+          "HosokTere/hosokTere1.jpg",
+          "HosokTere/hosokTere2.jpg",
+          "HosokTere/hosokTere3.jpg",
+          "HosokTere/hosokTere4.jpg",
+        ],
+      },
+      {
+        name: "Vajdahunyad Vára",
+        description:
+          "Ez az 1896-ban elkészült vár részletgazdag formavilágával a magyar építészet fejlődését mutatja be.",
+        coordinates: {
+          longitude: 47.514549,
+          latitude: 19.082684,
+        },
+        address: "Budapest, Vajdahunyad stny., 1146",
+        rating: 4.7,
+        ratingCount: 666,
+        time: 30,
+        pictures: [
+          "VajdahunyadVara/vajdahunyadVara1.jpg",
+          "VajdahunyadVara/vajdahunyadVara1.jpg",
+          "VajdahunyadVara/vajdahunyadVara1.jpg",
+          "VajdahunyadVara/vajdahunyadVara1.jpg",
+        ],
+      },
+      {
+        name: "Városliget",
+        description:
+          "Nagy park pálmaházzal, koncerthelyszínekkel és múzeumokkal, emellett fás sétányokkal és rétekkel.",
+        coordinates: {
+          longitude: 47.513235,
+          latitude: 19.085618,
+        },
+        address: "Budapest, Kós Károly stny., 1146",
+        rating: 4.6,
+        ratingCount: 666,
+        time: 30,
+        pictures: [
+          "Varosliget/varosliget1.jpg",
+          "Varosliget/varosliget1.jpg",
+          "Varosliget/varosliget1.jpg",
+          "Varosliget/varosliget1.jpg",
+        ],
+      },
+    ],
+  };
   return (
     <Box>
       <VStack
@@ -86,7 +224,7 @@ export default function LandmarkContainer({}: Props) {
           },
         }}
       >
-        {landmarks.map((landmark, index) => {
+        {tour.landmarks.map((landmark, index) => {
           return <LandmarkBox landmark={landmark} key={index} />;
         })}
       </VStack>
