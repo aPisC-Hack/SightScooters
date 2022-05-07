@@ -8,7 +8,7 @@ import MyTourPage from "../pages/MyToursPage";
 import MyLandmarksPage from "../pages/MyLandmarksPage";
 import { TourQuery } from "../queries/tour.query";
 import NavigationPage from "../pages/NavigationPage";
-import { Container } from "@chakra-ui/react";
+import { Container, Heading } from "@chakra-ui/react";
 import { jsx } from "@emotion/react";
 
 export const appRoutes = (
@@ -22,16 +22,19 @@ export const appRoutes = (
     {ContainerizedRoute({
       path: "/tours",
       element: (
-        <TourContainer
-          forSale={true}
-          toursCallable={async () => {
-            const custom = await TourQuery.getMyTours();
-            const all = await TourQuery.getNear();
-            return all.filter(
-              (item) => !custom.map((i) => i.id).includes(item.id)
-            );
-          }}
-        />
+        <>
+          <Heading>Find tours near you</Heading>
+          <TourContainer
+            forSale={true}
+            toursCallable={async () => {
+              const custom = await TourQuery.getMyTours();
+              const all = await TourQuery.getNear();
+              return all.filter(
+                (item) => !custom.map((i) => i.id).includes(item.id)
+              );
+            }}
+          />
+        </>
       ),
     })}
   </Routes>
