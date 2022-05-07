@@ -17,7 +17,7 @@ export default function MapPath({ coords }: Props) {
       "https://api.mapbox.com/directions/v5/mapbox/cycling/" +
         coords
           .map((coord) => {
-            return [coord.latitude, coord.longitude];
+            return [coord.longitude, coord.latitude];
           })
           .join(";") +
         "?geometries=geojson&steps=true&&access_token=" +

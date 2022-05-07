@@ -20,7 +20,7 @@ export default function MapBox({ coordinates }: Props) {
   useEffect(() => {
     console.log("reeee ");
     navigator.geolocation.getCurrentPosition((position) => {
-      setCurrentPosition([position.coords.longitude, position.coords.latitude]);
+      setCurrentPosition([position.coords.latitude, position.coords.longitude]);
     });
   }, []);
 
@@ -45,7 +45,7 @@ export default function MapBox({ coordinates }: Props) {
           geometry: {
             type: "LineString",
             coordinates: coordinates.map((coordinate) => {
-              return [coordinate.longitude, coordinate.latitude];
+              return [coordinate.latitude, coordinate.longitude];
             }),
           },
         },

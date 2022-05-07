@@ -20,7 +20,7 @@ export default function MapPointSource({ coordinate, address }: Props) {
           type: "Feature",
           geometry: {
             type: "Point",
-            coordinates: [coordinate.latitude, coordinate.longitude] as [
+            coordinates: [coordinate.longitude, coordinate.latitude] as [
               number,
               number
             ],
@@ -35,7 +35,7 @@ export default function MapPointSource({ coordinate, address }: Props) {
         .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(address))
         .addTo(map);
     });
-    map.setCenter([coordinate.latitude, coordinate.longitude] as [
+    map.setCenter([coordinate.longitude, coordinate.latitude] as [
       number,
       number
     ]);
