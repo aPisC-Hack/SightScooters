@@ -2,12 +2,15 @@ import React from "react";
 import { Box, VStack } from "@chakra-ui/react";
 import { ITour } from "common";
 import TourBox from "./TourBox";
+import { useApiCall } from "../../hooks/useApiCall";
+import { TourQuery } from "../../queries/tour.query";
 
-type Props = {
-  tours: Array<ITour>;
-};
+type Props = {};
 
-export default function TourContainer({ tours }: Props) {
+export default function TourContainer({}: Props) {
+  const api = useApiCall(() => TourQuery.getNear());
+
+  if (!api.value) return null;
   return (
     <Box>
       <VStack
@@ -28,7 +31,7 @@ export default function TourContainer({ tours }: Props) {
           },
         }}
       >
-        {tours.map((tour, index) => {
+        {api.value.map((tour, index) => {
           return <TourBox tour={tour} key={index} />;
         })}
       </VStack>
