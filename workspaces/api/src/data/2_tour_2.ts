@@ -4,11 +4,17 @@ import TourModel from "../models/tour.model";
 export default async function () {
   const tour = await TourModel.create({
     "name":"Szeretek lépcsőzni",
-    "description":"A Budavári palotól kezdbe a budai vár körül kirándulás, mely a Halászbástyánál ér véget.",
+    "description":"A Budavári palotól kezdbe a budai vár körül kirándulás, mely a Halászbástyánál ér véget. Idegen vezetés Gipsz Jakab, kitüntetéses diplomás idegen vezető által.",
     "time": 15,
     "distance": "2 km",
     "rating": "4.3",
     "ratingCount": "420",      
+    "price": "2500",
+    "isGuided": true,
+    "guideName": "Gipsz Jakab",
+    "guideRating": "platina",
+    "guideCompletedTours": 130,
+    "guideRelationshipStatus": "Single",
   });
 
   await TourModel.addLandmark(tour.id, 2);

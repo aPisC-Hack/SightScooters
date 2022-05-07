@@ -8,7 +8,9 @@ export default async function () {
     "time": 10,
     "distance": "1 km",
     "rating": "4.3",
-    "ratingCount": "666",     
+    "ratingCount": "666",   
+    "price": "700",
+    "isGuided": false,
 });
 
   await TourModel.addLandmark(tour.id, 3);
