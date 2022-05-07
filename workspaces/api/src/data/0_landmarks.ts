@@ -9,6 +9,9 @@ import TourModel from "../models/tour.model";
 2 - Hősök tere
 3 - Vajdahunyad Vára
 4 - Városliget
+5 - Gamerland
+6 - Burger
+7 - Auchan 
 */
 
 export default async function () {
@@ -105,6 +108,63 @@ await LandmarkModel.create({
     config.contentService +  "/Varosliget/varosliget2.jpg",
     config.contentService +  "/Varosliget/varosliget3.jpg",
     config.contentService +  "/Varosliget/varosliget4.jpg"
+  ],
+});
+
+await LandmarkModel.create({
+  "name": "Gamerland",
+  "description": "Legmodernebb szimulátorok, amiket érdemes kipróbálnod Közép-Európa legnagyobb esport központjában!",
+  "coordinate": {
+      "longitude": 47.557147, 
+      "latitude": 19.046440 
+  },
+  "rating": 4.8,
+  "ratingCount": 2022,
+  "address": "Budapest Szentendrei út 89-95. 2. ép. 4. lház. I. em, 1033",
+  "time": 1,
+  "pictures": [
+    config.contentService +  "/Gamerland/gamerland1.jpg",
+    config.contentService +  "/Gamerland/gamerland2.jpg",
+    config.contentService +  "/Gamerland/gamerland3.jpg",
+    config.contentService +  "/Gamerland/gamerland4.jpg"
+  ],
+});
+
+await LandmarkModel.create({
+  "name": "American Burger & Steak House",
+  "description": "A házhozszállításon kívül éttermünkben is várjuk kedves vendégeinket! Mindennap 21:30-ig szállítunk a III., XIII., XIV., kerületekbe, valamint Ürömre, Pomázra és Budakalászra.",
+  "coordinate": {
+      "longitude": 47.555750, 
+      "latitude": 19.046063
+  },
+  "rating": 4.6,
+  "ratingCount": 777,
+  "address": "Budapest, Reményi Ede u. 1, 1033",
+  "time": 2,
+  "pictures": [
+    config.contentService +  "/Burger/burger1.jpg",
+    config.contentService +  "/Burger/burger2.jpg",
+    config.contentService +  "/Burger/burger3.jpg",
+    config.contentService +  "/Burger/burger4.jpg"
+  ],
+});
+
+await LandmarkModel.create({
+  "name": "Auchan",
+  "description": "Áruházunk polcait folyamatosan töltjük, de nagyobb forgalmú hétvége után, ez egy kicsit több időt vesz igénybe, mindent megteszünk annak érdekében, hogy szépen feltöltött, és rendezett polcokkal várjuk kedves vásárlóinkat.",
+  "coordinate": {
+      "longitude": 47.559148, 
+      "latitude": 19.050236
+  },
+  "rating": 4.2,
+  "ratingCount": 8888,
+  "address": "Budapest, Szentendrei út 115, 1033",
+  "time": 5,
+  "pictures": [
+    config.contentService +  "/Burger/burger1.jpg",
+    config.contentService +  "/Burger/burger2.jpg",
+    config.contentService +  "/Burger/burger3.jpg",
+    config.contentService +  "/Burger/burger4.jpg"
   ],
 });
 
