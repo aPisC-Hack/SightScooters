@@ -19,8 +19,8 @@ import TourModel from "../models/tour.model";
 
 export default async function () {
   await LandmarkModel.create({
-      "name": "Halászbástya",
-      "description": "19. századi erőd 7 kilátótornyokkal, panorámás kilátással és kávézóval a teraszon. A budapesti bulinegyed helyén már több mint száz évvel ezelőtt is pezsgő, vibráló éjszakai élet zajlott, a kávéházakban, mulatokban és kéjbarlangokban pedig sötét alakok, kettős életet élő köztiszteletben álló figurák váltak a kokain rabjává. Vagy éppen váltak legendává. A fehér por most is ott van a városban, a séta során pedig megelevenedik mindaz, ami vele jár: a luxus, az elit világa, a függőség, a kor magyar kokainkereskedői, és a rendszer, amiben mindezek összeérnek. Feltárul előttünk egy titokzatos, zárt világ, ami valójában ott kísért a mindennapjainkban is, még ha eddig nem is tudtunk róla.",
+      "name": "Fisherman's bastion",
+      "description": "The Fisherman's Bastion is one of the most famous monuments in Budapest , located in the Buda Castle , in the 1st district of Budapest. Due to the unique panorama of Budapest from the Neo-Romanesque lookout terraces, it is one of the most significant tourist attractions. The main façade of the Fisherman's Bastion parallel to the Danube is about 140 meters long, of which the length of the southern corridor is about 40 meters, the northern one 65 meters long, while the ornate central parapet wall is 35 meters long. Its stone towers with pointed caps symbolize the seven Hungarian conquering leaders .",
       "coordinate": {
           "latitude": 47.501958,
           "longitude":  19.034959
@@ -36,16 +36,16 @@ export default async function () {
           config.contentService + "/HalaszBastya/halaszbastya4.jpg"
       ],
       "tags": [
-        "Történelem",
-        "Erőd",
-        "Kávézó"
+        "History",
+        "Bastion",
+        "Coffee"
       ]
     
   });
 
   await LandmarkModel.create({
-    "name": "Budavári Palota",
-    "description": "A Magyar Nemzeti Galéria fényűző helyszíne, ahol a gótikus oltároktól a szobrokig sok minden látható. Az atyák Balatonra néző fűszerkertjéből élvezhetjük az Apátságot beragyogó első hajnali napsugarakat. Mikor a Balaton vizén tükröződő fények már arany színben játszanak, és Tihany ébredezni kezd, mi folytatjuk utunkat a tömjén illatával belengett altemplomba. Miközben a felkelő Nap fénye beragyogja I. András sírját, meghallgatjuk a bencés diákok páratlan gregorián énekét. Az altemplomból felsétálunk a barokk templomba, ahol a hajnali csendben közelebb kerülhetünk saját magunkhoz is, mielőtt megkezdődne a nappali nyüzsgés.",
+    "name": "Buda Castle",
+    "description": "Monument castle on the hill above the city.There are galleries, spots to enjoy the view or admire the architecture, visit history expositions,try some medieval activities with locals or buy some arts. You can walk up but there is also a cable car to the right hand side as you look at the building opposite the bridge. Lovely views and they had a palinka and whiskey festival at the top. Extra cost. Don't miss the World Heritage-listed Royal Palace and Castle Hill. Home to the Hungarian National Gallery, the Budapest History Museum, famous Fishermen's Bastion, tiled roof of the Matthias Church.",
     "coordinate": { 
         "latitude": 47.496444,
         "longitude": 19.039577
@@ -61,14 +61,14 @@ export default async function () {
       config.contentService + "/BudavariPalota/budavariPalota4.jpg"
     ],
     "tags": [
-      "Galéria",
-      "Kilátás",
+      "Galery",
+      "Sightseeing",
     ]
 });
 
 await LandmarkModel.create({
   "name": "Hősök tere",
-  "description": "Az UNESCO világörökség részét képezi, a Magyarországot alapító 7 törzs vezéreinek szobrát vonultatja fel. A hatalmas, szecessziós stílusú szálloda központi kupoláját római fürdők ihlették, reprezentatív helyiségei, az éttermek, társastermek mind a Gellért térre és a dunai panorámára nyíltak. Az új szállodában olyan, ma már nehezebben értelmezhető helyiségek várták a vendégeket, mint az író- és olvasóterem, női szalon és zeneterem.",
+  "description": "Heroes' Square is the most spacious and most influential square in Budapest in the 14th century. district , in the narrower sense, denotes the Millennium Monument. Heroes' Square, together with the Andrássy Avenue in front of it , is a World Heritage Site. It is located on the axis of Andrássy út , on the western side of Városliget . / In addition, there are three Heroes' Square in Budapest : one in Rákosszentmihály ( District XVI ), one in the center of Soroksár ( District XXIII ), and one in Rákosliget ( District XVII ) ./ Andrássy út connects Terézváros with the city center .",
   "coordinate": {
       "latitude": 47.514907, 
       "longitude": 19.077734
@@ -84,14 +84,14 @@ await LandmarkModel.create({
     config.contentService +  "/HosokTere/hosokTere4.jpg"
   ],
   "tags": [
-    "UNESCO Világörökség",
-    "Történelem",
+    "World Heritage",
+    "History",
   ]
 });
 
 await LandmarkModel.create({
-  "name": "Vajdahunyad Vára",
-  "description": "Ez az 1896-ban elkészült vár részletgazdag formavilágával a magépítészet fejlődését mutatja be. Ebben az időszakban történt, hogy Ramon Costellót, a kubai származású amerikai ökölvívót nem engedték be a Gellért fürdőbe, mert a fehér amerikai és brit vendégek tiltakozni kezdtek. Costello panaszt tett a fővárosnál, ahol neki adtak igazat, az ügy pedig a nemzetközi sajtóba is bekerült.",
+  "name": "Hunedoara Castle",
+  "description": "he Vajdahunyad Castle or Vajdahunyad Castle , officially known as the Historical Building Group by Ignác Alpár, Budapest XIV. district , in the City Park . Lake Városligeti is located on the Széchenyi Island, which can be reached via four bridges . The castle was built for the purpose of the Hungarian Agricultural Museum between 1902 and 1908, so it serves the purposes of the museum, with the exception of the Jáki Chapel , consecrated on August 8, 1915 and given to the Roman Catholic Church. Today, the common name is Governor János Hunyadi and Erzsébet Szilágyiit was obtained from the most characteristic part of his residence, from the main facade of Heroes' Square, modeled on the castle of Vojvodina.",
   "coordinate": {
       "latitude": 47.514549, 
       "longitude": 19.082684
@@ -107,15 +107,15 @@ await LandmarkModel.create({
     config.contentService +  "/VajdahunyadVara/vajdahunyadVara4.jpg"
   ],
   "tags": [
-    "Történelem",
-    "Erőd",
-    "Építészet"
+    "History",
+    "Bastion",
+    "Architect"
   ]
 });
 
 await LandmarkModel.create({
-  "name": "Városliget",
-  "description": "Nagy park pálmaházzal, koncerthelyszínekkel és múzeumokkal, emellett fás sétányokkal és rétekkel. A név hallatán sokaknak már csak a „Gyere, gyere ki a hegyoldalba” jut eszébe, pedig valaha ez volt Buda legnagyobb, legtarkább negyede. Hogyan lett a török tímárnegyed romjaiból módos, peckes Rácváros? Ki mindenki élt itt a szőlőből, a fürdőkből, bor- és lánykereskedésből, irodalomból vagy órásmesterségből? Pusztította tűzvész, árvíz, járvány, végzetes csapásként a filoxéra – aztán jött a bontás, majd a II. világháború s végül az új Erzsébet híd építése jóformán az utolsó kis házakat is elsöpörte. De mégis: Szent Katalin templomának árnyékában büszke tabániak élnek, a domboldalon pedig egy 330 éves törökszederfa.  ",
+  "name": "City Park",
+  "description": "Városliget is a part of Budapest and the second largest public park in the 14th century. district . It is one of the first public parks in the world in chronological order. Its area is 100 to 120 hectares (1 to 1.2 km²) , depending on the definition . Of this, about 81 hectares is the actual park, and it has approx. It consists of 6500 trees. Another 19 hectares are the Capital Zoo and Botanical Garden , as well as museums and other buildings. Nicknamed Liget , formerly funny Lizsé. It is a popular resting place and cultural center of the capital , with many sights andattractions on its borders. As a part of the city, some residential and office buildings areofficially added to the outskirts. ",
   "coordinate": {
       "latitude": 47.513235, 
       "longitude": 19.085618
@@ -132,8 +132,9 @@ await LandmarkModel.create({
   ],
   "tags": [
     "Park",
-    "Erőd",
-    "Rendezvények"
+    "Nature",
+    "Bastion",
+    "Community Events"
   ]
 });
 
@@ -154,11 +155,16 @@ await LandmarkModel.create({
     config.contentService +  "/Gamerland/gamerland3.jpg",
     config.contentService +  "/Gamerland/gamerland4.jpg"
   ],
+  "tags": [
+    "Gaming",
+    "Hackathon",
+    "Esports"
+  ]
 });
 
 await LandmarkModel.create({
   "name": "American Burger & Steak House",
-  "description": "A házhozszállításon kívül éttermünkben is várjuk kedves vendégeinket! Mindennap 21:30-ig szállítunk a III., XIII., XIV., kerületekbe, valamint Ürömre, Pomázra és Budakalászra. A vöröshagymát apróra felkockázzuk, és kevés olívaolajon (vagy amin szeretnénk) elkezdjük párolni. Ha már üveges, rádobjuk a picire vágott fokhagymát. Maximum fél percig sütjük együtt, és rádobjuk a darált húst. Folyamatos kevergetés mellett pirítjuk. A pirítás közepe fele elkezdjük fűszerezni. Rászórjuk a sót, borsot, majorannát, oregánót, petrezselymet, fahéjat és darált erőspaprikát. Ha már késznek tűnik a hús, megszórjuk pirospaprikával, ráöntjük a konzerv babot és kukoricát (a leve nélkül). Kis keverés után felöntjük a paradicsomlével. A megadott mennyiség nem pontos, a lényeg, hogy éppen ellepje az ételt. Elkezdjük főzni, és közben hozzáadjuk a cayenne borsot vagy bármilyen más csípős fűszert, amit szeretünk. A mennyisége természetesen ízlés kérdése. Kb. 10 percig főzzük, és tálalható.",
+  "description": "Hungry? This is the place! Best Burger place in entire Budapest! French and Belgium beer in combination with the delicious food it’s a winner!Nice,friendly and very service minded staff! The place has a classic American diner style, nice and clean. Not too fancy just the way it should be! Very pleasantly surprised! We fell into this restaurant by accident. i got chicken quesadilla and my wife Merry Widow hamburger with sweet potatoes and cole slaw. The food was excellent and we plan on eating there again. Highly recommend it.",
   "coordinate": {
       "latitude": 47.555750, 
       "longitude": 19.046063
@@ -173,11 +179,15 @@ await LandmarkModel.create({
     config.contentService +  "/Burger/burger3.jpg",
     config.contentService +  "/Burger/burger4.jpg"
   ],
+  "tags": [
+    "Food",
+    "Drinks",
+  ]
 });
 
 await LandmarkModel.create({
   "name": "Auchan",
-  "description": "Áruházunk polcait folyamatosan töltjük, de nagyobb forgalmú hétvége után, ez egy kicsit több időt vesz igénybe, mindent megteszünk annak érdekében, hogy szépen feltöltött, és rendezett polcokkal várjuk kedves vásárlóinkat. Szeretnél barátokkal, családdal vagy kollégákkal privát Bor, gyógyvíz, törökszeder sétát? A sétát magánprogramként is megrendelheted, ennek ára: nettó 112 245 Ft + Áfa. Időpontegyeztetésért kérlek vedd fel velünk a kapcsolatot az info@hosszulepes.org címen. Hosszúlépés élmény, csak Nektek",
+  "description": "Auchan ( IPA : oʃɑ̃ ) is a French international retail group and multinational company headquartered in Croix , Lille , France . Auchan currently employs 287,000 people and operates 1,774 stores in 12 countries around the world. Auchan is present in France , Italy , Spain , Portugal , Luxembourg , Poland , Hungary , Russia , Romania , Ukraine , China and Taiwan. Auchan was founded in 1961 in France . Its founder and majority owner is Gérard Mulliez, who opened his first store in the Hauts Champs (Highlands) district of Roubaix in northern France : the name of the chain is derived from an alternative French description.",
   "coordinate": {
       "latitude": 47.559148, 
       "longitude": 19.050236
@@ -192,11 +202,15 @@ await LandmarkModel.create({
     config.contentService +  "/Auchan/auchan3.jpg",
     config.contentService +  "/Auchan/auchan4.jpg"
   ],
+  "tags": [
+    "Shopping",
+    "Food",
+  ]
 });
 
 await LandmarkModel.create({
-  "name": "Óbudai-sziget",
-  "description": "Nemzetközi fesztiválnak is otthont adó, a szabadtéri kikapcsolódást keresők körében népszerű árnyas sziget. Annak érdekében, hogy személyre szabjuk a tartalmakat és hirdetéseket,közösségi média szolgáltatásokat nyújtsunk, valamint elemezzük látogatottságunkat, partnereinkkel együtt különböző technológiákat, például sütiket (cookie-kat) használunk oldalunkon. Kattintson az alábbi gombra ezen technológia webes használatának elfogadásához. Bármikor meggondolhatja magát, és erre az oldalra visszatérve megváltoztathatja hozzájárulási beállításait. ",
+  "name": "Óbuda Island",
+  "description": "Óbuda Island , also known as Shipyard Island, is an island in the Danube in Budapest III. in the administrative area of ​​the district . In the form of Óbuda Island (ie in one word) it is also a part of Budapest. It is a popular place for excursions, but it has become more famous not because of it, but because of the Sziget Festival , which has been held here every year since 1993 . The island formed from the alluvium of the Danube is located along the banks of the Óbuda, between 1651 and 1654 km. It has an area of ​​108  hectares , a length of 2750 m and a maximum width of 500-500 m on the 1653 river kilometer line. It is separated from Óbuda by a 70-80 m wide branch of the Danube, the Árpád Bridge crosses at its southern end . It was originally an reef island and consisted of two nearby parts. ",
   "coordinate": {
       "latitude": 47.551150, 
       "longitude": 19.054117
@@ -211,11 +225,16 @@ await LandmarkModel.create({
     config.contentService +  "/ObudaiSziget/sziget3.jpg",
     config.contentService +  "/ObudaiSziget/sziget4.jpg"
   ],
+  "tags": [
+    "Park",
+    "Island",
+    "Nature",
+  ]
 });
 
 await LandmarkModel.create({
-  "name": "Graffitik",
-  "description": "Nemzetközi fesztiválnak is otthont adó, a szabadtéri kikapcsolódást keresők körében népszerű árnyas sziget. Annak érdekében, hogy személyre szabjuk a tartalmakat és hirdetéseket,közösségi média szolgáltatásokat nyújtsunk, valamint elemezzük látogatottságunkat, partnereinkkel együtt különböző technológiákat, például sütiket (cookie-kat) használunk oldalunkon. Kattintson az alábbi gombra ezen technológia webes használatának elfogadásához. Bármikor meggondolhatja magát, és erre az oldalra visszatérve megváltoztathatja hozzájárulási beállításait. ",
+  "name": "Graffies",
+  "description": "The first legal wall of Budapest has provided a surface for graffiti of various styles, sizes and colors since 1990. It is a defining place of the birth of the Hungarian graffiti culture, which can be traced back to the early 90's. Legal works are placed on the walls of Fila (graffiti is the only way they call the place among themselves). No one sends creators at work, they have time for meticulous elaboration, they can spend up to a day or two perfecting. In addition, the walls of the right size are in a very good place in terms of graffiti: it is easy to get out of the city center, it is easier to organize the team; next to the Hév stop, the drawings can be seen by many, the endless wall surface running parallel to the train tracks. The Sziget festival plays a significant role in the popularity of the Philatoriga, as it is known that the wall is also seen by tens of thousands of foreigners, it functions as a kind of advertising space of the Hungarian graffiti scene during the festival. During the week of the festival, the creators usually cover each other several times, this is the genre. Hundreds and hundreds of photos are taken of the drawings to comfort the creators. And documentation is very important in the world of graffiti!",
   "coordinate": {
       "latitude": 47.550375, 
       "longitude": 19.047128
@@ -230,11 +249,15 @@ await LandmarkModel.create({
     config.contentService +  "/Graffiti/graffiti3.jpg",
     config.contentService +  "/Graffiti/graffiti4.jpg"
   ],
+  "tags": [
+    "Art",
+    "Culture"
+  ]
 });
 
 await LandmarkModel.create({
   "name": "Bud Spencer park",
-  "description": "Fitnesz Park tartalmaz minden olyan eszközt ami kellöen megmozgat minden szinten lévő embereket akik edzeni szeretnék testüket. Alapgyakorlatokon kívűl számtalan gyakorlatot lehet végezni a nap 24 órájában. Természetesen ehhez először egy teljes testre kiterjedő felmérést kell elvrgezni, hogy tudjuk a testüklnk srtukturális vagy funkciónális eltérését. Ezután jöhet az edzésterv ami NEM  az interbetről letöltött verzió hanem személyre szabott. Miért ? Mert mindenki màs testi adottságokkal rendelkezik és más képessêgekkel, akár fizikálisan akár mentálisan. Ehhez hozzá jön még a motiris képességek is . ",
+  "description": "It is not without precedent that a public space is renamed by the people living there before a formal decision is made on the matter. After five years in Kaszásdűlő, Bud Spencer Park is now the grassy area between Búza utca, Köles utca, Szérűskert utca and Zab utca. The official public space sign was drilled by dr. Inaugurated by László Kiss and András Béres. The meadow in Kaszásdűlő has been called Bud Spencer park in public discourse since 2016, the year of the artist's death. Given that a person can only be named a public space five years after his or her death, a citizen’s initiative and dr. At the suggestion of Mayor László Kiss, the Budapest General Assembly recently discussed the matter and decided on a renaming.",
   "coordinate": {
       "latitude": 47.555745, 
       "longitude": 19.043720
@@ -249,6 +272,11 @@ await LandmarkModel.create({
     config.contentService +  "/BudSpencerPark/park3.jpg",
     config.contentService +  "/BudSpencerPark/park4.jpg"
   ],
+  "tags": [
+    "Nature",
+    "Culture",
+    "Park"
+  ]
 });
 
 
