@@ -8,6 +8,8 @@ import MyTourPage from "../pages/MyToursPage";
 import MyLandmarksPage from "../pages/MyLandmarksPage";
 import { TourQuery } from "../queries/tour.query";
 import NavigationPage from "../pages/NavigationPage";
+import { Container } from "@chakra-ui/react";
+import { jsx } from "@emotion/react";
 
 export const appRoutes = (
   <Routes>
@@ -19,9 +21,9 @@ export const appRoutes = (
     <Route path="/mylandmarks" element={<MyLandmarksPage />} />,
     <Route path="/landmark" element={<LandmarkPage />} />,
     <Route path="/navigate/:tourId" element={<NavigationPage />} />,
-    <Route
-      path="/tours"
-      element={
+    {ContainerizedRoute({
+      path: "/tours",
+      element: (
         <TourContainer
           forSale={true}
           toursCallable={async () => {
@@ -32,8 +34,16 @@ export const appRoutes = (
             );
           }}
         />
-      }
-    />
-    ,
+      ),
+    })}
   </Routes>
 );
+
+function ContainerizedRoute(props: { element: JSX.Element; path: string }) {
+  return (
+    <Route
+      path={props.path}
+      element={<Container maxW="container.lg">{props.element}</Container>}
+    />
+  );
+}

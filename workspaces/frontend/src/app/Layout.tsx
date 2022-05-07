@@ -25,7 +25,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
   return (
     <Box pt={headerHeight} height="100%" color="black">
       <Box pt={2} flex={1} height="100%" overflow="auto">
-        <Container maxW="container.lg">{children}</Container>
+        {children}
       </Box>
       <Box position="fixed" w="100%" top={0} h={headerHeight}>
         <Box position="absolute" top={0} left={0} w="100%" h="100%">

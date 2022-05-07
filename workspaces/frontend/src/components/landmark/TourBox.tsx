@@ -17,6 +17,7 @@ import { ITour, ICoordinate } from "common";
 import Map from "../map/Map";
 import MapPath from "../map/MapPath";
 import BuyButton from "./BuyButton";
+import MapModal from "../map/MapModal";
 
 type Props = {
   tour: ITour;
@@ -29,6 +30,7 @@ export default function TourBox({ tour, forSale, removeCallback }: Props) {
   const handleClose = () => {
     onClose();
   };
+
   return (
     <Box position="relative" width="100%">
       <IconButton
@@ -48,7 +50,7 @@ export default function TourBox({ tour, forSale, removeCallback }: Props) {
         <BuyButton buyCallback={() => removeCallback(tour.id)} tour={tour} />
       )}
       <Link to={"/tour/" + tour.id}>
-        <Box padding={3} bg="blue.100" borderRadius={4} width="100%">
+        <Box padding={3} bg="cyan.100" borderRadius={4} width="100%">
           <VStack width="100%">
             <LandmarkPictureBox
               images={tour.landmarks.reduce<Array<string>>(
@@ -58,24 +60,14 @@ export default function TourBox({ tour, forSale, removeCallback }: Props) {
             />
             <LandmarkHeader landmarkData={tour} />
           </VStack>
-          <Modal isOpen={isOpen} onClose={handleClose} size="4xl">
-            <ModalOverlay />
-            <ModalContent>
-              <ModalBody padding={2}>
-                <ModalCloseButton zIndex={999} />
-                <Box height="80vh">
-                  <Map>
-                    <MapPath
-                      coords={tour.landmarks.reduce<Array<ICoordinate>>(
-                        (prev, landmark) => [...prev, landmark.coordinate],
-                        []
-                      )}
-                    />
-                  </Map>
-                </Box>
-              </ModalBody>
-            </ModalContent>
-          </Modal>
+          <MapModal handleClose={handleClose} isOpen={isOpen}>
+            <MapPath
+              coords={tour.landmarks.reduce<Array<ICoordinate>>(
+                (prev, landmark) => [...prev, landmark.coordinate],
+                []
+              )}
+            />
+          </MapModal>
         </Box>
       </Link>
     </Box>

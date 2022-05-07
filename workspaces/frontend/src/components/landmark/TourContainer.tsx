@@ -15,39 +15,33 @@ export default function TourContainer({ forSale, toursCallable }: Props) {
   const [tags, setTags] = React.useState<Array<string>>([]);
   const api = useApiCall(toursCallable);
   if (!api.value) return <MySpinner />;
+
+  const tours: ITour[] = api.value;
+
   return (
     <Box>
-      <ReactTagInput
-        tags={tags}
-        onChange={(newTags: Array<string>) => setTags(newTags)}
-      />
-      <VStack gap={1} padding={2} maxH="100%" w="100%">
-        {api.value.map((tour, index) => {
-          if (tags.find((tag) => tour.tags?.includes(tag))) {
-            return (
-              <TourBox
-                removeCallback={(id: string) =>
-                  api.update(api.value?.filter((item) => item.id !== id))
-                }
-                forSale={forSale}
-                tour={tour}
-                key={index}
-              />
-            );
-          }
-          if (tags.length == 0) {
-            return (
-              <TourBox
-                removeCallback={(id: string) =>
-                  api.update(api.value?.filter((item) => item.id !== id))
-                }
-                forSale={forSale}
-                tour={tour}
-                key={index}
-              />
-            );
-          }
-        })}
+      <VStack gap={1} maxH="100%" w="100%">
+        <ReactTagInput
+          placeholder="Filter tours"
+          tags={tags}
+          onChange={(newTags: Array<string>) => setTags(newTags)}
+        />
+        {/*filter(tour => tags.length == 0 || tags?.find((tag) => tour.tags?.includes(tag)) */}
+        {tours
+          .filter(
+            (tour) =>
+              tags.length == 0 || tags.find((tag) => tour.tags.includes(tag))
+          )
+          .map((tour) => (
+            <TourBox
+              removeCallback={(id: string) =>
+                api.update(api.value?.filter((item) => item.id !== id))
+              }
+              forSale={forSale}
+              tour={tour}
+              key={tour.id}
+            />
+          ))}
       </VStack>
     </Box>
   );

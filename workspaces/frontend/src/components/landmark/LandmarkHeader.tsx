@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, HStack, Tag, VStack } from "@chakra-ui/react";
+import { Box, HStack, Tag, Text, VStack } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { ILandmark, ITour } from "common";
 
@@ -9,21 +9,15 @@ type Props = {
 
 export default function LandmarkHeader({ landmarkData }: Props) {
   return (
-    <Box w="100%">
-      <HStack>
-        <Box fontSize="xl">{landmarkData.name}</Box>
-      </HStack>
+    <VStack w="100%" align="stretch">
+      <Text fontSize="xl" fontWeight="bold">
+        {landmarkData.name}
+      </Text>
       <HStack justifyContent="space-between">
         <VStack alignItems="start">
           <Tag
             fontWeight="semibold"
-            colorScheme={
-              landmarkData.time < 10
-                ? "green"
-                : landmarkData.time < 20
-                ? "orange"
-                : "red"
-            }
+            colorScheme={landmarkTimeColor(landmarkData.time)}
           >
             {landmarkData.time} min
           </Tag>
@@ -44,6 +38,12 @@ export default function LandmarkHeader({ landmarkData }: Props) {
           </Box>
         </HStack>
       </HStack>
-    </Box>
+    </VStack>
   );
+}
+
+function landmarkTimeColor(time: number) {
+  if (time < 10) return "green";
+  if (time < 20) return "orange";
+  return "red";
 }
