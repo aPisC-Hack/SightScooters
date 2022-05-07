@@ -43,6 +43,8 @@ export default class TourModel
 
   @Column declare guideRelationshipStatus: string;
 
+  @Column declare guideImg: string;
+
   @Column({
     defaultValue: "",
     type: DataType.STRING,
