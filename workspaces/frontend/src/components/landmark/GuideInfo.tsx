@@ -1,4 +1,6 @@
+
 import { Box, VStack, HStack, Image } from "@chakra-ui/react";
+
 
 import { ITour } from "common";
 type Props = {
@@ -8,6 +10,7 @@ type Props = {
 export default function GuideInfo({ tour }: Props) {
   return (
     <VStack alignItems="left">
+
       <HStack>
         <Box>
           <Image
@@ -22,7 +25,7 @@ export default function GuideInfo({ tour }: Props) {
           <Box>{"Successful tours: " + tour.guideCompletedTours}</Box>
           <Box>{"Rating: " + tour.guideRating}</Box>
         </Box>
-      </HStack>
+
     </VStack>
   );
 }

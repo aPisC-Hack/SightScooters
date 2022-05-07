@@ -1,8 +1,10 @@
 import { StarIcon } from "@chakra-ui/icons";
-import { Box, IToast, Tag, VStack } from "@chakra-ui/react";
+import { Box, HStack, Tag, VStack } from "@chakra-ui/react";
 import React from "react";
 import { ITour } from "../../../../../common/src/ITour";
+import GuideInfo from "../GuideInfo";
 import LandmarkPictureBox from "../LandmarkPictureBox";
+import ShowcaseTags from "../ShowcaseTags";
 
 type Props = { tour: ITour };
 
@@ -22,6 +24,7 @@ export default function TourInfo({ tour }: Props) {
         {" " + tour.rating}({tour.ratingCount})
       </Box>
       <Box>{tour.description}</Box>
+      {tour.isGuided && <GuideInfo tour={tour} />}
       <Tag
         fontWeight="semibold"
         colorScheme={
@@ -30,6 +33,7 @@ export default function TourInfo({ tour }: Props) {
       >
         {tour.time} min
       </Tag>
+      <ShowcaseTags data={tour} />
     </VStack>
   );
 }

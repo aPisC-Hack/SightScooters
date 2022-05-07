@@ -10,8 +10,10 @@ export interface ITour {
   rating: number;
   ratingCount: number;
   tags: Array<string>;
-  guideImg: string;
-  guideName: string;
-  guideCompletedTours: number;
-  guideRating: string;
+  isGuided: boolean,
+  guideName?: string,
+  guideRating?: string,
+  guideCompletedTours?: number,
+  guideRelationshipStatus?: string,
+  guideImg: string
 }

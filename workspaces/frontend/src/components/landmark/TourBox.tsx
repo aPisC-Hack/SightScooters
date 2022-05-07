@@ -17,6 +17,7 @@ import { ITour, ICoordinate } from "common";
 import Map from "../map/Map";
 import MapPath from "../map/MapPath";
 import BuyButton from "./BuyButton";
+import GuideInfo from "./GuideInfo";
 
 type Props = {
   tour: ITour;
