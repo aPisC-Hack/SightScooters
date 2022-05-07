@@ -1,3 +1,4 @@
+import config from "../config";
 import LandmarkModel from "../models/landmark.model";
 import TourModel from "../models/tour.model";
 
@@ -15,6 +16,7 @@ export default async function () {
     "guideRating": "platina",
     "guideCompletedTours": 130,
     "guideRelationshipStatus": "Single",
+    "guideImg": config.contentService + "/guideImgs/HorvathJeno.jpg",
   });
 
   await TourModel.addLandmark(tour.id, 2);

@@ -18,6 +18,7 @@ import Map from "../map/Map";
 import MapPath from "../map/MapPath";
 import BuyButton from "./BuyButton";
 import MapModal from "../map/MapModal";
+import GuideInfo from "./GuideInfo";
 
 type Props = {
   tour: ITour;
