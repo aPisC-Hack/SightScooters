@@ -35,6 +35,10 @@ export default function MapPointSource({ coordinate, address }: Props) {
         .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(address))
         .addTo(map);
     });
+    map.setCenter([coordinate.latitude, coordinate.longitude] as [
+      number,
+      number
+    ]);
   }, [map]);
 
   return null;

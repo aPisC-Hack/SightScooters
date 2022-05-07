@@ -47,6 +47,12 @@ export default function TourBox({ tour }: Props) {
       <Link to={"/tour/" + tour.id}>
         <Box padding={3} bg="blue.100" borderRadius={4} width="100%">
           <VStack width="100%">
+            <LandmarkPictureBox
+              images={tour.landmarks.reduce<Array<string>>(
+                (prev, landmark) => [...prev, ...landmark.pictures],
+                []
+              )}
+            />
             <LandmarkHeader landmarkData={tour} />
           </VStack>
           <Modal isOpen={isOpen} onClose={handleClose} size="4xl">

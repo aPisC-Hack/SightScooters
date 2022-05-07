@@ -2,6 +2,7 @@ import React from "react";
 import {
   Box,
   IconButton,
+  Checkbox,
   VStack,
   Modal,
   ModalBody,
@@ -19,9 +20,10 @@ import MapPointSource from "../map/MapPointSource";
 
 type Props = {
   landmark: ILandmark;
+  checkable: boolean;
 };
 
-export default function LandmarkBox({ landmark }: Props) {
+export default function LandmarkBox({ landmark, checkable }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleClose = () => {
     onClose();
@@ -34,6 +36,15 @@ export default function LandmarkBox({ landmark }: Props) {
       position="relative"
       width="100%"
     >
+      {checkable && (
+        <Checkbox
+          position="absolute"
+          left={1}
+          top={1}
+          size="lg"
+          colorScheme="gray"
+        />
+      )}
       <IconButton
         aria-label="Show map"
         icon={<IoMapSharp />}

@@ -24,7 +24,7 @@ export default function LandmarkHeader({ landmarkData }: Props) {
               : "red"
           }
         >
-          {landmarkData.time} perc
+          {landmarkData.time} min
         </Tag>
         <HStack>
           <Box>
