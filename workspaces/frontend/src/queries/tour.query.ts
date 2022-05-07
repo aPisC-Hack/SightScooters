@@ -1,7 +1,7 @@
 import { ITour } from "../../../common/src/ITour";
-import { LocalStorageQuery } from "./localstorage.query";
 
 import axios from "axios";
+import { LocalStorageQuery } from "./localstorage.query";
 
 async function getOne(id: string | undefined): Promise<ITour | undefined> {
   if (!id) return undefined;
@@ -23,4 +23,8 @@ async function getNear(): Promise<ITour[]> {
   return [...customs.reverse(), ...server];
 }
 
-export const TourQuery = { getOne, getNear };
+async function uploadCustomTour(tour: ITour) {
+  return await LocalStorageQuery.insertEntity("customTours", tour);
+}
+
+export const TourQuery = { getOne, getNear, uploadCustomTour };
