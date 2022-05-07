@@ -68,9 +68,6 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
               <LinkButton onClose={onClose} to="/mylandmarks">
                 My landmarks
               </LinkButton>
-              <LinkButton to="/navigate/3" onClose={onClose}>
-                Test nav
-              </LinkButton>
             </VStack>
           </DrawerBody>
         </DrawerContent>
