@@ -32,6 +32,11 @@ export default async function () {
           config.contentService + "/HalaszBastya/halaszbastya3.jpg",
           config.contentService + "/HalaszBastya/halaszbastya4.jpg"
       ],
+      "tags": [
+        "Történelem",
+        "Erőd",
+        "Kávézó"
+      ]
     
   });
 
@@ -52,6 +57,10 @@ export default async function () {
       config.contentService + "/BudavariPalota/budavariPalota3.jpg",
       config.contentService + "/BudavariPalota/budavariPalota4.jpg"
     ],
+    "tags": [
+      "Galéria",
+      "Kilátás",
+    ]
 });
 
 await LandmarkModel.create({
@@ -71,6 +80,10 @@ await LandmarkModel.create({
     config.contentService +  "/HosokTere/hosokTere3.jpg",
     config.contentService +  "/HosokTere/hosokTere4.jpg"
   ],
+  "tags": [
+    "UNESCO Világörökség",
+    "Történelem",
+  ]
 });
 
 await LandmarkModel.create({
@@ -90,6 +103,11 @@ await LandmarkModel.create({
     config.contentService +  "/VajdahunyadVara/vajdahunyadVara3.jpg",
     config.contentService +  "/VajdahunyadVara/vajdahunyadVara4.jpg"
   ],
+  "tags": [
+    "Történelem",
+    "Erőd",
+    "Építészet"
+  ]
 });
 
 await LandmarkModel.create({
@@ -109,6 +127,11 @@ await LandmarkModel.create({
     config.contentService +  "/Varosliget/varosliget3.jpg",
     config.contentService +  "/Varosliget/varosliget4.jpg"
   ],
+  "tags": [
+    "Park",
+    "Erőd",
+    "Rendezvények"
+  ]
 });
 
 await LandmarkModel.create({

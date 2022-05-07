@@ -9,7 +9,7 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
-  Spinner,
+  Button,
   useDisclosure,
 } from "@chakra-ui/react";
 import LandmarkPictureBox from "./LandmarkPictureBox";
@@ -19,12 +19,17 @@ import MapBox from "../map/MapBox";
 import { ITour, ICoordinate } from "common";
 import Map from "../map/Map";
 import MapPath from "../map/MapPath";
+import { useApiCall } from "../../hooks/useApiCall";
+import { TourQuery } from "../../queries/tour.query";
+import BuyButton from "./BuyButton";
 
 type Props = {
   tour: ITour;
+  forSale: boolean;
+  removeCallback: Function;
 };
 
-export default function TourBox({ tour }: Props) {
+export default function TourBox({ tour, forSale, removeCallback }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleClose = () => {
     onClose();
@@ -44,6 +49,9 @@ export default function TourBox({ tour }: Props) {
         borderRadius="50%"
         onClick={onOpen}
       />
+      {forSale && (
+        <BuyButton buyCallback={() => removeCallback(tour.id)} tour={tour} />
+      )}
       <Link to={"/tour/" + tour.id}>
         <Box padding={3} bg="blue.100" borderRadius={4} width="100%">
           <VStack width="100%">
@@ -62,7 +70,6 @@ export default function TourBox({ tour }: Props) {
                 <ModalCloseButton zIndex={999} />
                 <Box height="80vh">
                   <Map>
-                    {" "}
                     <MapPath
                       coords={tour.landmarks.reduce<Array<ICoordinate>>(
                         (prev, landmark) => [...prev, landmark.coordinate],

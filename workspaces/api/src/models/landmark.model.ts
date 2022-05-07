@@ -61,6 +61,18 @@ export default class LandmarkModel
     defaultValue: "",
     type: DataType.STRING,
     get: function () {
+      return (this.getDataValue("tags") as string).split(";");
+    },
+    set: function (val) {
+      this.setDataValue("tags", (val as string[]).join(";"));
+    },
+  })
+  declare tags: string[];
+
+  @Column({
+    defaultValue: "",
+    type: DataType.STRING,
+    get: function () {
       return (this.getDataValue("pictures") as string).split(";");
     },
     set: function (val) {
@@ -75,12 +87,7 @@ export default class LandmarkModel
   @BelongsToMany(() => TourModel, () => TourLandmarkModel)
   declare tours: TourModel;
 
-  static async addTour(landmarkId: number, tourId: number): Promise<void> {
-    await TourLandmarkModel.create({
-      tourId,
-      landmarkId,
-    });
-  }
+
 
   public toJSON() {
     return { ...super.toJSON(), coord_lat: undefined, coord_lon: undefined };
