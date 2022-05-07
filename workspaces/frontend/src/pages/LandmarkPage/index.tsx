@@ -1,5 +1,4 @@
-import { ILandmark, ITour } from "common";
-import SimpleLandmarkContainer from "../../components/landmark/SimpleLandmarkContainer";
+import { ILandmark } from "common";
 import { useApiCall } from "../../hooks/useApiCall";
 import { TourQuery } from "../../queries/tour.query";
 import { LandmarkQuery } from "../../queries/landmark.query";
@@ -22,6 +21,7 @@ import {
 } from "@chakra-ui/react";
 
 import { useState } from "react";
+import LandmarkList from "../../components/landmark/LandmarkList";
 
 interface IFormData {
   name: string;
@@ -46,13 +46,12 @@ export default function LandmarkPage({}: Props) {
   return (
     <>
       <VStack height="100%">
-        <SimpleLandmarkContainer
-          setSelectedPlacesCallback={(id: string) =>
-            setSelectedPlaces([...selectedPlaces, id])
-          }
-          setDeselectedPlacesCallback={(id: string) =>
-            setSelectedPlaces(selectedPlaces.filter((item) => item !== id))
-          }
+        <LandmarkList
+          checkedIds={selectedPlaces}
+          onCheckedChange={(id, checked) => {
+            if (checked) setSelectedPlaces((s) => [...s, id]);
+            else setSelectedPlaces((s) => s.filter((x) => x !== id));
+          }}
           landmarks={api.value}
         />
         <Button disabled={selectedPlaces == []} onClick={onOpen}>

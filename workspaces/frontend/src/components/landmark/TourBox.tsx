@@ -62,7 +62,6 @@ export default function TourBox({ tour }: Props) {
                 <ModalCloseButton zIndex={999} />
                 <Box height="80vh">
                   <Map>
-                    {" "}
                     <MapPath
                       coords={tour.landmarks.reduce<Array<ICoordinate>>(
                         (prev, landmark) => [...prev, landmark.coordinate],

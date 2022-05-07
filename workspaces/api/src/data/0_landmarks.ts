@@ -4,11 +4,11 @@ import TourModel from "../models/tour.model";
 
 /*
 -------Landmark Ids----------
-0 - Halászbástya
-1 - Budavári Palota
-2 - Hősök tere
-3 - Vajdahunyad Vára
-4 - Városliget
+1 - Halászbástya
+2 - Budavári Palota
+3 - Hősök tere
+4 - Vajdahunyad Vára
+5 - Városliget
 */
 
 export default async function () {
@@ -29,6 +29,11 @@ export default async function () {
           config.contentService + "/HalaszBastya/halaszbastya3.jpg",
           config.contentService + "/HalaszBastya/halaszbastya4.jpg"
       ],
+      "tags": [
+        "Történelem",
+        "Erőd",
+        "Kávézó"
+      ]
     
   });
 
@@ -49,6 +54,10 @@ export default async function () {
       config.contentService + "/BudavariPalota/budavariPalota3.jpg",
       config.contentService + "/BudavariPalota/budavariPalota4.jpg"
     ],
+    "tags": [
+      "Galéria",
+      "Kilátás",
+    ]
 });
 
 await LandmarkModel.create({
@@ -68,6 +77,10 @@ await LandmarkModel.create({
     config.contentService +  "/HosokTere/hosokTere3.jpg",
     config.contentService +  "/HosokTere/hosokTere4.jpg"
   ],
+  "tags": [
+    "UNESCO Világörökség",
+    "Történelem",
+  ]
 });
 
 await LandmarkModel.create({
@@ -87,6 +100,11 @@ await LandmarkModel.create({
     config.contentService +  "/VajdahunyadVara/vajdahunyadVara3.jpg",
     config.contentService +  "/VajdahunyadVara/vajdahunyadVara4.jpg"
   ],
+  "tags": [
+    "Történelem",
+    "Erőd",
+    "Építészet"
+  ]
 });
 
 await LandmarkModel.create({
@@ -106,6 +124,11 @@ await LandmarkModel.create({
     config.contentService +  "/Varosliget/varosliget3.jpg",
     config.contentService +  "/Varosliget/varosliget4.jpg"
   ],
+  "tags": [
+    "Park",
+    "Erőd",
+    "Rendezvények"
+  ]
 });
 
 //...
