@@ -9,6 +9,7 @@ import {
   ModalContent,
   ModalOverlay,
   useDisclosure,
+  HStack,
 } from "@chakra-ui/react";
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import LandmarkHeader from "./LandmarkHeader";
@@ -34,22 +35,22 @@ export default function TourBox({ tour, forSale, removeCallback }: Props) {
 
   return (
     <Box position="relative" width="100%">
-      <IconButton
-        aria-label="Show map"
-        icon={<IoMapSharp />}
-        position="absolute"
-        right={0}
-        top={0}
-        margin={1}
-        colorScheme="gray"
-        padding={2}
-        fontSize="xl"
-        borderRadius="50%"
-        onClick={onOpen}
-      />
-      {forSale && (
-        <BuyButton buyCallback={() => removeCallback(tour.id)} tour={tour} />
-      )}
+      <HStack pos="absolute" top={1} right={1}>
+        {forSale && (
+          <BuyButton buyCallback={() => removeCallback(tour.id)} tour={tour} />
+        )}
+        <IconButton
+          aria-label="Show map"
+          icon={<IoMapSharp />}
+          colorScheme="gray"
+          padding={2}
+          fontSize="xl"
+          borderRadius="50%"
+          onClick={onOpen}
+          shadow="lg"
+        />
+      </HStack>
+
       <Link to={"/tour/" + tour.id}>
         <Box padding={3} bg="cyan.100" borderRadius={4} width="100%">
           <VStack width="100%">

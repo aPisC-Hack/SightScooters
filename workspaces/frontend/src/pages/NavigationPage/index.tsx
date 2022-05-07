@@ -51,7 +51,11 @@ export default function NavigationPage({}: Props) {
 
         <MapUser />
         {landmarks.map((x) => (
-          <MapPointSource coordinate={x.coordinate} address={x.name} />
+          <MapPointSource
+            key={x.id}
+            coordinate={x.coordinate}
+            address={x.name}
+          />
         ))}
       </Map>
       {nearestLandmark && (
