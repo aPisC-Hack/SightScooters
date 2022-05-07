@@ -4,19 +4,16 @@ import { Controller } from "../utils";
 import { Route } from "../utils/decorators";
 import { Map } from "../utils/decorators/mappers";
 
-export default class TourController extends Controller {
+export default class LandmarkController extends Controller {
   @Route.Get("/:id")
-  async getOne(@Map.Param("id") id: number): Promise<TourModel | null> {
-    return await TourModel.findOne({
+  async getOne(@Map.Param("id") id: number): Promise<LandmarkModel | null> {
+    return await LandmarkModel.findOne({
       where: { id: id },
-      include: [LandmarkModel],
     });
   }
 
   @Route.Get("/")
-  async getAll(): Promise<TourModel[]> {
-    return await TourModel.findAll({
-      include: [LandmarkModel],
-    });
+  async getAll(): Promise<LandmarkModel[]> {
+    return await LandmarkModel.findAll({});
   }
 }
