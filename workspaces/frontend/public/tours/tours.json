@@ -1,0 +1,29 @@
+[
+    {
+        "name":"Népligeti kiruccanás",
+        "description":"A Hősök terétől elindulva egy kis hangvételű túra a Népligetben a Vajdahunyad várát meglátogatva.",
+        "time": "10p",
+        "distance": "1 km",
+        "ratings": "4.3",
+        "ratingCount": "666",
+        "landmarks": [
+            { "place": 1, "id":"02a5cf5c-21a1-497f-b657-f5685473a852" },
+            { "place": 2, "id":"2fe3058e-a9db-4d6f-a488-14702b8a31aa" },
+            { "place": 3, "id":"4e8c3e4a-b94e-4fbd-978a-9868d3c47119" }
+        ]
+          
+    },
+    {
+        "name":"Szeretek lépcsőzni",
+        "description":"A Budavári palotól kezdbe a budai vár körül kirándulás, mely a Halászbástyánál ér véget.",
+        "time": "15p",
+        "distance": "2 km",
+        "rating": "4.3",
+        "ratingCount": "420",
+        "landmarks": [
+            { "place": 1, "id":"be88a0ff-6ace-4c80-95bf-97456736604c" },
+            { "place": 2, "id":"2dcb31e3-3eb2-4fab-8261-879049bde702" }
+        ]
+          
+    }
+]

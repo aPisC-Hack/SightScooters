@@ -3,8 +3,15 @@ import TourModel from "../models/tour.model";
 
 export default async function () {
   const tour = await TourModel.create({
-    //...
-  });
+    "name":"Népligeti kiruccanás",
+    "description":"A Hősök terétől elindulva egy kis hangvételű túra a Városligetben a Vajdahunyad várát meglátogatva.",
+    "time": "10p",
+    "distance": "1 km",
+    "rating": "4.3",
+    "ratingCount": "666",     
+});
 
-  await TourModel.addLandmark(tour.id, 1);
+  await TourModel.addLandmark(tour.id, 3);
+  await TourModel.addLandmark(tour.id, 5);
+  await TourModel.addLandmark(tour.id, 4);
 }
