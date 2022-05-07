@@ -1,14 +1,22 @@
-import Koa from 'koa';
-import 'reflect-metadata';
+import Koa from "koa";
+import "reflect-metadata";
 
 export namespace Map {
   const mappersSymbol = Symbol();
 
   export type MapperFunction<TValue> = (...args: any[]) => TValue;
 
-  export function Mapper<TValue = any>(mapper: MapperFunction<TValue>): ParameterDecorator {
-    return function (target: Object, propertyKey: string | symbol, parameterIndex: number) {
-      const mappers = Reflect.getOwnMetadata(mappersSymbol, target, propertyKey)?.slice() || [];
+  export function Mapper<TValue = any>(
+    mapper: MapperFunction<TValue>
+  ): ParameterDecorator {
+    return function (
+      target: Object,
+      propertyKey: string | symbol,
+      parameterIndex: number
+    ) {
+      const mappers =
+        Reflect.getOwnMetadata(mappersSymbol, target, propertyKey)?.slice() ||
+        [];
       Reflect.defineMetadata(mappersSymbol, mappers, target, propertyKey);
 
       while (mappers.length <= parameterIndex) mappers.push(null);
@@ -47,6 +55,7 @@ export namespace Map {
   export const Request = () => Mapper((ctx) => ctx.request);
   export const Response = () => Mapper((ctx) => ctx.response);
   export const Body = () => Mapper((ctx) => ctx.request.body);
+  export const Param = (key: string) => Mapper((ctx) => ctx.params[key]);
   export const State = () => Mapper((ctx) => ctx.state);
   export const User = () => Mapper((ctx) => ctx.state?.user);
   export const Query = () => Mapper((ctx) => ctx.request.query);
