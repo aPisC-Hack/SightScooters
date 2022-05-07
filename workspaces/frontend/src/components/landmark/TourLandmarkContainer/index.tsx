@@ -11,11 +11,7 @@ import {
   TabPanels,
   TabPanel,
 } from "@chakra-ui/react";
-import { ILandmark, ITour } from "common";
-import LandmarkBox from "../LandmarkBox";
-import LandmarkPictureBox from "../LandmarkPictureBox";
-import { StarIcon } from "@chakra-ui/icons";
-import LandmarkList from "../LandmarkList";
+import { ITour } from "common";
 import LandmarksView from "./LandmarksView";
 import TourInfo from "./TourInfo";
 

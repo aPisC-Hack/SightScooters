@@ -8,13 +8,3 @@ html, body, #root {
 }
 
 
-*::-webkit-scrollbar{
-  width: "4px";
-}
-*::-webkit-scrollbar-track{
-  width: "6px";
-}
-*::-webkit-scrollbar-thumb {
-  background: "blue";
-  border-radius: "24px";
-}
