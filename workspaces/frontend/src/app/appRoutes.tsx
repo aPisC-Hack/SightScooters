@@ -19,6 +19,7 @@ export const appRoutes = (
       path="/tours"
       element={
         <TourContainer
+          forSale={true}
           toursCallable={async () => {
             const custom = await TourQuery.getMyTours();
             const all = await TourQuery.getNear();
