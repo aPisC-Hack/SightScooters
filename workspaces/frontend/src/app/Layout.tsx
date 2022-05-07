@@ -79,6 +79,14 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
               <Button
                 onClick={onClose}
                 as={Link}
+                to="/mylandmarks"
+                colorScheme="cyan"
+              >
+                My landmarks
+              </Button>
+              <Button
+                onClick={onClose}
+                as={Link}
                 to="/navigate/3"
                 colorScheme="cyan"
               >

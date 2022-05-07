@@ -47,6 +47,7 @@ export default function LandmarkPage({}: Props) {
     <>
       <VStack height="100%">
         <LandmarkList
+          checkable={true}
           checkedIds={selectedPlaces}
           onCheckedChange={(id, checked) => {
             if (checked) setSelectedPlaces((s) => [...s, id]);
