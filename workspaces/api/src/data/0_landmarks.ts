@@ -4,14 +4,14 @@ import TourModel from "../models/tour.model";
 
 /*
 -------Landmark Ids----------
-0 - Halászbástya
-1 - Budavári Palota
-2 - Hősök tere
-3 - Vajdahunyad Vára
-4 - Városliget
-5 - Gamerland
-6 - Burger
-7 - Auchan 
+1 - Halászbástya
+2 - Budavári Palota
+3 - Hősök tere
+4 - Vajdahunyad Vára
+5 - Városliget
+6 - Gamerland
+7 - Burger
+8 - Auchan 
 */
 
 export default async function () {
