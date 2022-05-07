@@ -7,6 +7,7 @@ import MySpinner from "../MySpinner";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import { motion, AnimatePresence } from "framer-motion";
 import ScaleFadeAnimation from "../animations/ScaleFadeAnimation";
+import EmptyPage from "../EmptyPage";
 
 type Props = {
   forSale: boolean;
@@ -19,7 +20,9 @@ export default function TourContainer({ forSale, toursCallable }: Props) {
   if (!api.value) return <MySpinner />;
 
   const tours: ITour[] = api.value;
-
+  if (tours.length == 0) {
+    return <EmptyPage text="You might find something under 'Tours'!" />;
+  }
   return (
     <VStack gap={1} maxH="100%" w="100%">
       <ReactTagInput

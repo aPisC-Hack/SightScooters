@@ -14,8 +14,6 @@ import { jsx } from "@emotion/react";
 export const appRoutes = (
   <Routes>
     {/*<Route path="/" element={<WelcomePage />} />,*/}
-    <Route path="/recommendation" element={<RecommendationPage />} />,
-    <Route path="/tour-info/:tourId" element={<TourInfoPage />} />,
     <Route path="/tour/:tourId" element={<TourPage />} />,
     <Route path="/mytours" element={<MyTourPage />} />,
     <Route path="/mylandmarks" element={<MyLandmarksPage />} />,
