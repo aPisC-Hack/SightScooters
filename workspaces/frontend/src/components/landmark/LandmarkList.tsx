@@ -8,7 +8,6 @@ import MapIconButton from "./MapIconButton";
 import TicketBuyButton from "./TicketBuyButton";
 import TicketOwnedButton from "./TicketOwnedButton";
 import CheckableBox from "./CheckableBox";
-
 import ReactTagInput from "@pathofdev/react-tag-input";
 import MySpinner from "../MySpinner";
 

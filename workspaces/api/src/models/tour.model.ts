@@ -60,7 +60,7 @@ export default class TourModel
     const tour  = await TourModel.findByPk(tourId) as TourModel;
     const landmark = await LandmarkModel.findByPk(landmarkId) as LandmarkModel;
 
-    const tags =[...new Set( [...tour?.tags, ...landmark?.tags])]
+    const tags =[...new Set( [...tour?.tags, ...landmark?.tags])].filter(tag => !tag);
 
     tour.tags = tags;
 
