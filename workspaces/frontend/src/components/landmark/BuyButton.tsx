@@ -58,7 +58,7 @@ export default function BuyButton({ tour, buyCallback }: Props) {
             </Center>
             <HStack p={0} justify="space-between">
               <Button onClick={() => navigate(`/navigate/${tour.id}`)}>
-                Free Ride
+                Free Roaming
               </Button>
               <Button onClick={handleClick}>Buy tour ({tour.price} $)</Button>
             </HStack>
@@ -68,19 +68,3 @@ export default function BuyButton({ tour, buyCallback }: Props) {
     </>
   );
 }
-/* <Modal isOpen={isOpen} onClose={onClose} size="4xl">
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>
-            <ModalCloseButton zIndex={999} />
-          </ModalHeader>
-          <ModalBody maxW={32} pos="relative">
-            <HStack width="100%" justify="space-between">
-              <Button onClick={() => navigate("/navigate/" + tour.id)}>
-                Free ride ($$$)
-              </Button>
-              <Button onClick={handleClick}>Buy period ($$$)</Button>
-            </HStack>
-          </ModalBody>
-        </ModalContent>
-      </Modal> */

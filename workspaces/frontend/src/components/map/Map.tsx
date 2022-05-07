@@ -46,26 +46,32 @@ export default function Map({
   const [size, setSize] = useState([0, 0]);
   return (
     <MapContext.Provider value={map}>
-      <Box
-        position="absolute"
-        top={0}
-        left={0}
-        right={0}
-        h={0}
-        overflowY="visible"
-      >
-        <Center pt={24}>
-          <MySpinnerInner />
-        </Center>
+      <Box w="100%" h="100%" borderRadius={4} overflow="hidden">
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          h={0}
+          overflowY="visible"
+        >
+          <Center pt={24}>
+            <MySpinnerInner />
+          </Center>
+        </Box>
+        <Box
+          position="absolute"
+          ref={mapBoxRef}
+          opacity={!map ? 0 : 1}
+          top={0}
+          left={0}
+          right={0}
+          w="100%"
+          h="100%"
+          className="map-container"
+        />
+        <Box display="none">{children}</Box>
       </Box>
-      <Box
-        ref={mapBoxRef}
-        opacity={!map ? 0 : 1}
-        w="100%"
-        h="100%"
-        className="map-container"
-      />
-      <Box display="none">{children}</Box>
     </MapContext.Provider>
   );
 }

@@ -30,7 +30,9 @@ export default function MapModal({
             bg="cyan.200"
             _hover={{ bg: "cyan.100" }}
           />
-          <Box height="80vh">{isOpen && <Map>{children}</Map>}</Box>
+          <Box height="80vh" padding={2}>
+            {isOpen && <Map>{children}</Map>}
+          </Box>
         </ModalBody>
       </ModalContent>
     </Modal>
