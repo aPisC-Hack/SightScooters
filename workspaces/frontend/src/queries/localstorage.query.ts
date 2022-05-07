@@ -16,6 +16,7 @@ async function insertEntity(key: string, entity: any) {
   };
 
   set(key, [...list, entity]);
+  return entity;
 }
 
 async function deleteEntity(key: string, id: string) {

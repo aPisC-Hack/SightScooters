@@ -13,12 +13,15 @@ async function getOne(id: string | undefined): Promise<ITour | undefined> {
 }
 
 async function getNear(): Promise<ITour[]> {
-  const custom = LocalStorageQuery.get("customTours");
-  return axios.get(`https://crafthack.apisc.host/api/tour`).then((r) => r.data);
+  const customs = (await LocalStorageQuery.get("customTours")) || [];
+  const server = await axios
+    .get(`https://crafthack.apisc.host/api/tour`)
+    .then((r) => r.data);
+  return [...customs, ...server];
 }
 
 async function uploadCustomTour(tour: ITour) {
-  return tour;
+  return await LocalStorageQuery.insertEntity("customTours", tour);
 }
 
 export const TourQuery = { getOne, getNear };
