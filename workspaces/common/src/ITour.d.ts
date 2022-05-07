@@ -10,4 +10,8 @@ export interface ITour {
   rating: number;
   ratingCount: number;
   tags: Array<string>;
+  guideImg: string;
+  guideName: string;
+  guideCompletedTours: number;
+  guideRating: string;
 }
