@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {
   Box,
-  Center,
   IconButton,
   VStack,
   Modal,
@@ -9,18 +8,14 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
-  Button,
   useDisclosure,
 } from "@chakra-ui/react";
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import LandmarkHeader from "./LandmarkHeader";
 import { IoMapSharp } from "react-icons/io5";
-import MapBox from "../map/MapBox";
 import { ITour, ICoordinate } from "common";
 import Map from "../map/Map";
 import MapPath from "../map/MapPath";
-import { useApiCall } from "../../hooks/useApiCall";
-import { TourQuery } from "../../queries/tour.query";
 import BuyButton from "./BuyButton";
 
 type Props = {

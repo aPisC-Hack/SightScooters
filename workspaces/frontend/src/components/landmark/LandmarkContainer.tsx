@@ -9,8 +9,6 @@ import { LandmarkQuery } from "../../queries/landmark.query";
 import TicketBuyButton from "./TicketBuyButton";
 import TicketOwnedButton from "./TicketOwnedButton";
 import MapIconButton from "./MapIconButton";
-import LandmarkHeader from "./LandmarkHeader";
-import CheckableBox from "./CheckableBox";
 
 type Props = {
   tour: ITour;

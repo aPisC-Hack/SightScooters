@@ -5,6 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import reportWebVitals from "./reportWebVitals";
 import { Center, ChakraProvider, Spinner } from "@chakra-ui/react";
 import App from "./app/index";
+import "@pathofdev/react-tag-input/build/index.css";
 
 ReactDOM.render(
   <React.StrictMode>

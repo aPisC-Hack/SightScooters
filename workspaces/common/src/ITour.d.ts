@@ -9,4 +9,5 @@ export interface ITour {
   description: string;
   rating: number;
   ratingCount: number;
+  tags: Array<string>;
 }
