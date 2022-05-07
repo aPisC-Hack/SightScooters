@@ -15,4 +15,5 @@ export interface ITour {
   guideRating?: string,
   guideCompletedTours?: number,
   guideRelationshipStatus?: string,
+  guideImg: string
 }

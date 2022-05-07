@@ -57,6 +57,9 @@ export default class LandmarkModel
   @Column
   declare ratingCount: number;
 
+  @Column
+  declare guideImg: string
+
   @Column({
     defaultValue: "",
     type: DataType.STRING,
