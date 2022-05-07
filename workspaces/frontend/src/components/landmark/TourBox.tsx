@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Box,
   IconButton,
@@ -21,6 +21,8 @@ import BuyButton from "./BuyButton";
 import MapModal from "../map/MapModal";
 import GuideInfo from "./GuideInfo";
 import ScaleFadeAnimation from "../animations/ScaleFadeAnimation";
+import { FaPlay } from "react-icons/fa";
+import { useNavigator } from "../../hooks/useNavigator";
 
 type Props = {
   tour: ITour;
@@ -33,12 +35,25 @@ export default function TourBox({ tour, forSale, removeCallback }: Props) {
   const handleClose = () => {
     onClose();
   };
+  const navigate = useNavigate();
 
   return (
     <Box position="relative" width="100%">
       <HStack pos="absolute" top={1} right={1}>
         {forSale && (
           <BuyButton buyCallback={() => removeCallback(tour.id)} tour={tour} />
+        )}
+        {!forSale && (
+          <IconButton
+            aria-label="Starrt tour"
+            icon={<FaPlay />}
+            colorScheme="gray"
+            padding={2}
+            fontSize="lg"
+            borderRadius="50%"
+            onClick={() => navigate(`/navigate/${tour.id}`)}
+            shadow="lg"
+          />
         )}
         <IconButton
           aria-label="Show map"
