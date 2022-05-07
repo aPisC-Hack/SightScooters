@@ -31,6 +31,16 @@ export default class TourModel
 
   @Column declare ratingCount: number;
 
+  @Column declare isGuided: boolean;
+
+  @Column declare guideName: string;
+
+  @Column declare guideRating: string;
+
+  @Column declare guideCompletedTours: number;
+
+  @Column declare guideRelationshipStatus: string;
+
   @Column({
     defaultValue: "",
     type: DataType.STRING,
