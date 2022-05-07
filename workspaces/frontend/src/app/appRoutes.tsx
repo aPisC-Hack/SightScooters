@@ -16,6 +16,6 @@ export const appRoutes = [
   <Route path="/recommendation" element={<RecommendationPage />} />,
   <Route path="/tour-info/:tourId" element={<TourInfoPage />} />,
   <Route path="/tour/:tourId" element={<TourPage />} />,
-  <Route path="/landmark/:landmarkId" element={<LandmarkPage />} />,
+  <Route path="/landmark" element={<LandmarkPage />} />,
   <Route path="/dev-map" element={<TourContainer />} />,
 ];
