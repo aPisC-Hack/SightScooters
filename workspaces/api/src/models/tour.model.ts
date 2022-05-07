@@ -2,6 +2,7 @@ import {
   BelongsTo,
   BelongsToMany,
   Column,
+  DataType,
   ForeignKey,
   HasMany,
   Model,
@@ -30,10 +31,28 @@ export default class TourModel
 
   @Column declare ratingCount: number;
 
+  @Column({
+    defaultValue: "",
+    type: DataType.STRING,
+    get: function () {
+      return (this.getDataValue("tags") as string).split(";");
+    },
+    set: function (val) {
+      this.setDataValue("tags", (val as string[]).join(";"));
+    },
+  })
+  declare tags: string[];
+
   @BelongsToMany(() => LandmarkModel, () => TourLandmarkModel)
   declare landmarks: LandmarkModel[];
 
   static async addLandmark(tourId: number, landmarkId: number): Promise<void> {
+    const tour  = await TourModel.findByPk(tourId) as TourModel;
+    const landmark = await LandmarkModel.findByPk(landmarkId) as LandmarkModel;
+
+    const tags = [...tour?.tags, ...landmark?.tags]
+
+
     await TourLandmarkModel.create({
       tourId,
       landmarkId,
