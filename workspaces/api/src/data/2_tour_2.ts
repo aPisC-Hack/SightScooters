@@ -10,7 +10,7 @@ export default async function () {
     "distance": "2 km",
     "rating": "4.3",
     "ratingCount": "420",      
-    "price": "2500",
+    "price": 2500,
     "isGuided": true,
     "guideName": "Horváth Jenő",
     "guideRating": "platina",

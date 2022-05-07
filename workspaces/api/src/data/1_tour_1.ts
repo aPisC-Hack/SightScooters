@@ -9,7 +9,7 @@ export default async function () {
     "distance": "1 km",
     "rating": "4.3",
     "ratingCount": "666",   
-    "price": "700",
+    "price": 700,
     "isGuided": false,
 });
 

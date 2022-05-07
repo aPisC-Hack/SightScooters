@@ -31,6 +31,8 @@ export default class TourModel
 
   @Column declare ratingCount: number;
 
+  @Column declare price: string;
+
   @Column declare isGuided: boolean;
 
   @Column declare guideName: string;
