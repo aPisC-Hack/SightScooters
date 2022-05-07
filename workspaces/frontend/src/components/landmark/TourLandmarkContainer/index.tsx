@@ -21,7 +21,7 @@ type Props = {
 
 export default function TourLandmarkContainer({ tour }: Props) {
   return (
-    <Tabs isFitted variant="enclosed">
+    <Tabs isFitted colorScheme="blue">
       <TabList mb="1em">
         <Tab>Description</Tab>
         <Tab>Landmarks</Tab>

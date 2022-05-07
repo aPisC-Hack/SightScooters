@@ -13,12 +13,11 @@ import { jsx } from "@emotion/react";
 
 export const appRoutes = (
   <Routes>
-    {/*<Route path="/" element={<WelcomePage />} />,*/}
-    <Route path="/tour/:tourId" element={<TourPage />} />,
-    <Route path="/mytours" element={<MyTourPage />} />,
-    <Route path="/mylandmarks" element={<MyLandmarksPage />} />,
-    {ContainerizedRoute({ path: "/landmark", element: <LandmarkPage /> })}
     <Route path="/navigate/:tourId" element={<NavigationPage />} />,
+    {ContainerizedRoute({ path: "/tour/:tourId", element: <TourPage /> })}
+    {ContainerizedRoute({ path: "/mylandmarks", element: <MyLandmarksPage /> })}
+    {ContainerizedRoute({ path: "/mytours", element: <MyTourPage /> })}
+    {ContainerizedRoute({ path: "/landmark", element: <LandmarkPage /> })}
     {ContainerizedRoute({
       path: "/tours",
       element: (

@@ -25,7 +25,11 @@ export default function MapModal({
       <ModalOverlay />
       <ModalContent>
         <ModalBody padding={2}>
-          <ModalCloseButton zIndex={999} />
+          <ModalCloseButton
+            zIndex={999}
+            bg="cyan.200"
+            _hover={{ bg: "cyan.100" }}
+          />
           <Box height="80vh">{isOpen && <Map>{children}</Map>}</Box>
         </ModalBody>
       </ModalContent>

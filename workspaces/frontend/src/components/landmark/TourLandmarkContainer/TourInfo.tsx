@@ -1,5 +1,5 @@
 import { StarIcon } from "@chakra-ui/icons";
-import { Box, HStack, Tag, VStack } from "@chakra-ui/react";
+import { Box, HStack, Tag, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { ITour } from "../../../../../common/src/ITour";
 import ScaleFadeAnimation from "../../animations/ScaleFadeAnimation";
@@ -25,7 +25,7 @@ export default function TourInfo({ tour }: Props) {
           <StarIcon />
           {" " + tour.rating}({tour.ratingCount})
         </Box>
-        <Box>{tour.description}</Box>
+        <Text textAlign="justify">{tour.description}</Text>
         {tour.isGuided && <GuideInfo tour={tour} />}
         <Tag
           fontWeight="semibold"

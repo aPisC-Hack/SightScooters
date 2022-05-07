@@ -46,7 +46,11 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton colorScheme="cyan" />
+          <DrawerCloseButton
+            colorScheme="cyan"
+            bg="cyan.400"
+            _hover={{ bg: "cyan.500" }}
+          />
           <DrawerBody p={4} py={0}>
             <VStack w="100%" align="stretch" gap={2} p={0}>
               <Text fontSize="2xl" fontWeight="bold">
