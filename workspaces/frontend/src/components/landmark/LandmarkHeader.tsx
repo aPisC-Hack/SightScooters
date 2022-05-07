@@ -2,6 +2,7 @@ import React from "react";
 import { Box, HStack, Tag, VStack } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { ILandmark, ITour } from "common";
+import ShowcaseTags from "./ShowcaseTags";
 
 type Props = {
   landmarkData: ILandmark | ITour;
@@ -27,12 +28,7 @@ export default function LandmarkHeader({ landmarkData }: Props) {
           >
             {landmarkData.time} min
           </Tag>
-          <HStack wrap="wrap">
-            {landmarkData.tags &&
-              landmarkData.tags.map((tag, index) => {
-                return <Tag key={index}>{tag}</Tag>;
-              })}
-          </HStack>
+          <ShowcaseTags data={landmarkData} />
         </VStack>
         <HStack align="flex-end">
           <Box>

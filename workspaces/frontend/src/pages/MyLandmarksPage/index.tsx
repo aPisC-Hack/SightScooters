@@ -1,4 +1,3 @@
-import React from "react";
 import LandmarkList from "../../components/landmark/LandmarkList";
 import { useApiCall } from "../../hooks/useApiCall";
 import { LandmarkQuery } from "../../queries/landmark.query";
