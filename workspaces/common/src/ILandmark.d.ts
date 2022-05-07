@@ -11,4 +11,5 @@ export interface ILandmark {
   pictures: Array<string>;
   time: number;
   tags: Array<string>
+  price: number;
 }

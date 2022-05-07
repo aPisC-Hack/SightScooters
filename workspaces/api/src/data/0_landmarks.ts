@@ -39,7 +39,8 @@ export default async function () {
         "History",
         "Bastion",
         "Coffee"
-      ]
+      ],
+      "price": 1200,
     
   });
 
@@ -63,7 +64,8 @@ export default async function () {
     "tags": [
       "Galery",
       "Sightseeing",
-    ]
+    ],
+    "price": 1500,
 });
 
 await LandmarkModel.create({
@@ -86,7 +88,8 @@ await LandmarkModel.create({
   "tags": [
     "World Heritage",
     "History",
-  ]
+  ],
+  "price": 800,
 });
 
 await LandmarkModel.create({
@@ -110,7 +113,8 @@ await LandmarkModel.create({
     "History",
     "Bastion",
     "Architect"
-  ]
+  ],
+  "price": 1000,
 });
 
 await LandmarkModel.create({
@@ -135,7 +139,8 @@ await LandmarkModel.create({
     "Nature",
     "Bastion",
     "Community Events"
-  ]
+  ],
+  "price": 3000,
 });
 
 await LandmarkModel.create({
@@ -159,7 +164,8 @@ await LandmarkModel.create({
     "Gaming",
     "Hackathon",
     "Esports"
-  ]
+  ],
+  "price": 600,
 });
 
 await LandmarkModel.create({
@@ -182,7 +188,8 @@ await LandmarkModel.create({
   "tags": [
     "Food",
     "Drinks",
-  ]
+  ],
+  "price": 400,
 });
 
 await LandmarkModel.create({
@@ -205,7 +212,8 @@ await LandmarkModel.create({
   "tags": [
     "Shopping",
     "Food",
-  ]
+  ],
+  "price": 2000,
 });
 
 await LandmarkModel.create({
@@ -229,7 +237,8 @@ await LandmarkModel.create({
     "Park",
     "Island",
     "Nature",
-  ]
+  ],
+  "price": 500,
 });
 
 await LandmarkModel.create({
@@ -252,7 +261,8 @@ await LandmarkModel.create({
   "tags": [
     "Art",
     "Culture"
-  ]
+  ],
+  "price": 1000,
 });
 
 await LandmarkModel.create({
@@ -276,7 +286,8 @@ await LandmarkModel.create({
     "Nature",
     "Culture",
     "Park"
-  ]
+  ],
+  "price": 1500,
 });
 
 

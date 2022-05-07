@@ -55,6 +55,9 @@ export default class LandmarkModel
   declare rating: number;
 
   @Column
+  declare price: number;
+
+  @Column
   declare ratingCount: number;
 
   @Column
