@@ -5,7 +5,6 @@ import { Box } from "@chakra-ui/react";
 import Map from "./components/map/Map";
 import { IMarker } from "./components/map/IMarker";
 import MapBox from "./components/map/MapBox";
-import LandmarkContainer from "./components/landmark/LandmarkContainer";
 
 function App() {
   const demoMarkers: Array<IMarker> = [
@@ -19,7 +18,7 @@ function App() {
   return (
     <Box height="100vh" width="100%">
       {/*<MapBox markers={demoMarkers} />*/}
-      <LandmarkContainer />
+      <WelcomeBox />
     </Box>
   );
 }
