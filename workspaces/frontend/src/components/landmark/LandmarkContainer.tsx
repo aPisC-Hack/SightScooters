@@ -1,16 +1,33 @@
 import React, { useState } from "react";
 import { Box, VStack, HStack, Button, Tag } from "@chakra-ui/react";
-import { ITour } from "common";
+import { ILandmark, ITour } from "common";
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import { StarIcon } from "@chakra-ui/icons";
 import LandmarkBox from "./LandmarkBox";
+import { useApiCall } from "../../hooks/useApiCall";
+import { LandmarkQuery } from "../../queries/landmark.query";
+import TicketBuyButton from "./TicketBuyButton";
+import TicketOwnedButton from "./TicketOwnedButton";
+import MapIconButton from "./MapIconButton";
+import LandmarkHeader from "./LandmarkHeader";
+import CheckableBox from "./CheckableBox";
 
 type Props = {
   tour: ITour;
+  callback: Function;
+  checkable?: boolean;
+  buyable?: boolean;
 };
 
-export default function LandmarkContainer({ tour }: Props) {
+export default function LandmarkContainer({
+  tour,
+  callback,
+  checkable = false,
+  buyable = false,
+}: Props) {
   const [view, setView] = useState(false);
+  const api = useApiCall(() => LandmarkQuery.getMyLandmarks());
+  if (!api?.value) return null;
   return (
     <Box>
       <HStack spacing={0} gap={0} width="100%" align="center" padding={2}>
@@ -61,7 +78,23 @@ export default function LandmarkContainer({ tour }: Props) {
         <VStack gap={1} padding={2} maxH="100%" w="100%">
           {tour.landmarks.map((landmark, index) => {
             return (
-              <LandmarkBox landmark={landmark} key={index} checkable={true} />
+              <LandmarkBox landmark={landmark} key={index}>
+                <MapIconButton
+                  address={landmark.address}
+                  coordinate={landmark.coordinate}
+                />
+                {buyable &&
+                !(api.value as ILandmark[])
+                  .map((item) => item.id)
+                  .includes(landmark.id) ? (
+                  <TicketBuyButton
+                    landmark={landmark}
+                    callback={() => api.execute()}
+                  />
+                ) : (
+                  <TicketOwnedButton />
+                )}
+              </LandmarkBox>
             );
           })}
         </VStack>

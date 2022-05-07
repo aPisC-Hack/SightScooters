@@ -76,6 +76,14 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
               >
                 My tours
               </Button>
+              <Button
+                onClick={onClose}
+                as={Link}
+                to="/mylandmarks"
+                colorScheme="cyan"
+              >
+                My landmarks
+              </Button>
             </VStack>
           </DrawerBody>
         </DrawerContent>
