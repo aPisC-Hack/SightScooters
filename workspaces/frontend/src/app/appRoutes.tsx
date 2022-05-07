@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { ITour } from "../../../common/src/ITour";
 import TourContainer from "../components/landmark/TourContainer";
 import Map from "../components/map/Map";
@@ -11,11 +11,13 @@ import TourInfoPage from "../pages/TourInfoPage";
 import TourPage from "../pages/TourPage";
 import WelcomePage from "../pages/WelcomePage/WelcomePage";
 
-export const appRoutes = [
-  <Route path="/" element={<WelcomePage />} />,
-  <Route path="/recommendation" element={<RecommendationPage />} />,
-  <Route path="/tour-info/:tourId" element={<TourInfoPage />} />,
-  <Route path="/tour/:tourId" element={<TourPage />} />,
-  <Route path="/landmark" element={<LandmarkPage />} />,
-  <Route path="/dev-map" element={<TourContainer />} />,
-];
+export const appRoutes = (
+  <Routes>
+    <Route path="/" element={<WelcomePage />} />,
+    <Route path="/recommendation" element={<RecommendationPage />} />,
+    <Route path="/tour-info/:tourId" element={<TourInfoPage />} />,
+    <Route path="/tour/:tourId" element={<TourPage />} />,
+    <Route path="/landmark" element={<LandmarkPage />} />,
+    <Route path="/dev-map" element={<TourContainer />} />,
+  </Routes>
+);
