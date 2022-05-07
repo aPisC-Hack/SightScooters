@@ -20,8 +20,6 @@ type Props = {
 };
 
 export default function TourLandmarkContainer({ tour }: Props) {
-  const [view, setView] = useState(false);
-
   return (
     <Tabs isFitted variant="enclosed">
       <TabList mb="1em">
