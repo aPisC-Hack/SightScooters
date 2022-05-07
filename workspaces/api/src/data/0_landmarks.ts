@@ -4,14 +4,17 @@ import TourModel from "../models/tour.model";
 
 /*
 -------Landmark Ids----------
-0 - Halászbástya
-1 - Budavári Palota
-2 - Hősök tere
-3 - Vajdahunyad Vára
-4 - Városliget
-5 - Gamerland
-6 - Burger
-7 - Auchan 
+1 - Halászbástya
+2 - Budavári Palota
+3 - Hősök tere
+4 - Vajdahunyad Vára
+5 - Városliget
+6 - Gamerland
+7 - Burger
+8 - Auchan 
+9 - Sziget
+10- Graffiti
+11- Park
 */
 
 export default async function () {
@@ -190,6 +193,64 @@ await LandmarkModel.create({
     config.contentService +  "/Burger/burger4.jpg"
   ],
 });
+
+await LandmarkModel.create({
+  "name": "Óbudai-sziget",
+  "description": "Nemzetközi fesztiválnak is otthont adó, a szabadtéri kikapcsolódást keresők körében népszerű árnyas sziget. Annak érdekében, hogy személyre szabjuk a tartalmakat és hirdetéseket,közösségi média szolgáltatásokat nyújtsunk, valamint elemezzük látogatottságunkat, partnereinkkel együtt különböző technológiákat, például sütiket (cookie-kat) használunk oldalunkon. Kattintson az alábbi gombra ezen technológia webes használatának elfogadásához. Bármikor meggondolhatja magát, és erre az oldalra visszatérve megváltoztathatja hozzájárulási beállításait. ",
+  "coordinate": {
+      "longitude": 47.551150, 
+      "latitude": 19.054117
+  },
+  "rating": 4.7,
+  "ratingCount": 6969,
+  "address": "Budapest",
+  "time": 7,
+  "pictures": [
+    config.contentService +  "/ObudaiSziget/sziget1.jpg",
+    config.contentService +  "/ObudaiSziget/sziget2.jpg",
+    config.contentService +  "/ObudaiSziget/sziget3.jpg",
+    config.contentService +  "/ObudaiSziget/sziget4.jpg"
+  ],
+});
+
+await LandmarkModel.create({
+  "name": "Graffitik",
+  "description": "Nemzetközi fesztiválnak is otthont adó, a szabadtéri kikapcsolódást keresők körében népszerű árnyas sziget. Annak érdekében, hogy személyre szabjuk a tartalmakat és hirdetéseket,közösségi média szolgáltatásokat nyújtsunk, valamint elemezzük látogatottságunkat, partnereinkkel együtt különböző technológiákat, például sütiket (cookie-kat) használunk oldalunkon. Kattintson az alábbi gombra ezen technológia webes használatának elfogadásához. Bármikor meggondolhatja magát, és erre az oldalra visszatérve megváltoztathatja hozzájárulási beállításait. ",
+  "coordinate": {
+      "longitude": 47.550375, 
+      "latitude": 19.047128
+  },
+  "rating": 4.9,
+  "ratingCount": 10,
+  "address": "Budapest, Bogdáni út 1, 1033",
+  "time": 6,
+  "pictures": [
+    config.contentService +  "/Graffiti/graffiti1.jpg",
+    config.contentService +  "/Graffiti/graffiti2.jpg",
+    config.contentService +  "/Graffiti/graffiti3.jpg",
+    config.contentService +  "/Graffiti/graffiti4.jpg"
+  ],
+});
+
+await LandmarkModel.create({
+  "name": "Bud Spencer park",
+  "description": "Fitnesz Park tartalmaz minden olyan eszközt ami kellöen megmozgat minden szinten lévő embereket akik edzeni szeretnék testüket. Alapgyakorlatokon kívűl számtalan gyakorlatot lehet végezni a nap 24 órájában. Természetesen ehhez először egy teljes testre kiterjedő felmérést kell elvrgezni, hogy tudjuk a testüklnk srtukturális vagy funkciónális eltérését. Ezután jöhet az edzésterv ami NEM  az interbetről letöltött verzió hanem személyre szabott. Miért ? Mert mindenki màs testi adottságokkal rendelkezik és más képessêgekkel, akár fizikálisan akár mentálisan. Ehhez hozzá jön még a motiris képességek is . ",
+  "coordinate": {
+      "longitude": 47.555745, 
+      "latitude": 19.043720
+  },
+  "rating": 4.5,
+  "ratingCount": 101,
+  "address": "Budapest, Unnamed Road, 1033",
+  "time": 4,
+  "pictures": [
+    config.contentService +  "/BudSpencerPark/park1.jpg",
+    config.contentService +  "/BudSpencerPark/park2.jpg",
+    config.contentService +  "/BudSpencerPark/park3.jpg",
+    config.contentService +  "/BudSpencerPark/park4.jpg"
+  ],
+});
+
 
 //...
 }

@@ -13,7 +13,7 @@ export default async function () {
     "isGuided": false,
   });
 
-  await TourModel.addLandmark(tour.id, 5);
   await TourModel.addLandmark(tour.id, 6);
   await TourModel.addLandmark(tour.id, 7);
+  await TourModel.addLandmark(tour.id, 8);
 }
