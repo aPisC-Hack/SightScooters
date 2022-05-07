@@ -7,6 +7,7 @@ type Props = {};
 
 export default function LandmarkContainer({}: Props) {
   const tour: ITour = {
+    id: "",
     time: 30,
     name: "TourName",
     landmarks: [
