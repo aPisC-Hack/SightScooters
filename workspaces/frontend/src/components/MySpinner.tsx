@@ -34,15 +34,21 @@ export default function MySpinner({}: Props) {
       justifyContent="center"
       zIndex={999}
     >
-      <Box
-        as={motion.div}
-        animation={animation}
-        padding="2"
-        bgGradient="linear(to-l, #20e0cc, #0a69e5)"
-        width="12"
-        height="12"
-        display="flex"
-      />
+      <MySpinnerInner />
     </Container>
   ) : null;
+}
+
+export function MySpinnerInner() {
+  return (
+    <Box
+      as={motion.div}
+      animation={animation}
+      padding="2"
+      bgGradient="linear(to-l, #20e0cc, #0a69e5)"
+      width="12"
+      height="12"
+      display="flex"
+    />
+  );
 }

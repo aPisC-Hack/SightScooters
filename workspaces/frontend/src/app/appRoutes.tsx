@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import TourContainer from "../components/landmark/TourContainer";
 import LandmarkPage from "../pages/LandmarkPage";
 import RecommendationPage from "../pages/RecommendationPage";
@@ -10,9 +10,11 @@ import { TourQuery } from "../queries/tour.query";
 import NavigationPage from "../pages/NavigationPage";
 import { Container, Heading } from "@chakra-ui/react";
 import { jsx } from "@emotion/react";
+import { useNavigator } from "../hooks/useNavigator";
 
 export const appRoutes = (
   <Routes>
+    <Route path="/" element={<Navigate to="/tours" />} />
     <Route path="/navigate/:tourId" element={<NavigationPage />} />,
     {ContainerizedRoute({ path: "/tour/:tourId", element: <TourPage /> })}
     {ContainerizedRoute({ path: "/mylandmarks", element: <MyLandmarksPage /> })}

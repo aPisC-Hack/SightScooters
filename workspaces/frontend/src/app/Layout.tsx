@@ -7,6 +7,7 @@ import {
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
+  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   HStack,
@@ -70,6 +71,18 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
               </LinkButton>
             </VStack>
           </DrawerBody>
+          <DrawerFooter>
+            <Button
+              variant="link"
+              onClick={() => {
+                localStorage.removeItem("myLandmarks");
+                localStorage.removeItem("customTours");
+                localStorage.removeItem("myTours");
+              }}
+            >
+              Clear cache
+            </Button>
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </Box>
