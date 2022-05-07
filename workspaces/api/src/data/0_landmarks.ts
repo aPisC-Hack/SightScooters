@@ -45,9 +45,9 @@ export default async function () {
     "time": 9,
     "pictures": [
       config.contentService + "/BudavariPalota/budavariPalota1.jpg",
-      config.contentService + "/BudavariPalota/budavariPalota1.jpg",
-      config.contentService + "/BudavariPalota/budavariPalota1.jpg",
-      config.contentService + "/BudavariPalota/budavariPalota1.jpg"
+      config.contentService + "/BudavariPalota/budavariPalota2.jpg",
+      config.contentService + "/BudavariPalota/budavariPalota3.jpg",
+      config.contentService + "/BudavariPalota/budavariPalota4.jpg"
     ],
 });
 
@@ -83,9 +83,9 @@ await LandmarkModel.create({
   "time": 7,
   "pictures": [
     config.contentService +  "/VajdahunyadVara/vajdahunyadVara1.jpg",
-    config.contentService +  "/VajdahunyadVara/vajdahunyadVara1.jpg",
-    config.contentService +  "/VajdahunyadVara/vajdahunyadVara1.jpg",
-    config.contentService +  "/VajdahunyadVara/vajdahunyadVara1.jpg"
+    config.contentService +  "/VajdahunyadVara/vajdahunyadVara2.jpg",
+    config.contentService +  "/VajdahunyadVara/vajdahunyadVara3.jpg",
+    config.contentService +  "/VajdahunyadVara/vajdahunyadVara4.jpg"
   ],
 });
 
@@ -102,9 +102,9 @@ await LandmarkModel.create({
   "time": 6,
   "pictures": [
     config.contentService +  "/Varosliget/varosliget1.jpg",
-    config.contentService +  "/Varosliget/varosliget1.jpg",
-    config.contentService +  "/Varosliget/varosliget1.jpg",
-    config.contentService +  "/Varosliget/varosliget1.jpg"
+    config.contentService +  "/Varosliget/varosliget2.jpg",
+    config.contentService +  "/Varosliget/varosliget3.jpg",
+    config.contentService +  "/Varosliget/varosliget4.jpg"
   ],
 });
 
