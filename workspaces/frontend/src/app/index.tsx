@@ -17,9 +17,7 @@ function App() {
         }
       >
         <BrowserRouter>
-          <Layout>
-            <Routes>{appRoutes}</Routes>
-          </Layout>
+          <Layout>{appRoutes}</Layout>
         </BrowserRouter>
       </Suspense>
     </ChakraProvider>
