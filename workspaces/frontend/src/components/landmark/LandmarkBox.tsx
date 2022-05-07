@@ -13,8 +13,7 @@ import {
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import LandmarkHeader from "./LandmarkHeader";
 import { IoMapSharp } from "react-icons/io5";
-import { ILandmark } from "../../../../common/src/ILandmark";
-import MapBox from "../map/MapBox";
+import { ILandmark } from "common";
 
 type Props = {
   landmark: ILandmark;
