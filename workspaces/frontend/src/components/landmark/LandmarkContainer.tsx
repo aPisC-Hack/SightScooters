@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Box, VStack, HStack, Button, Tag } from "@chakra-ui/react";
-import { ILandmark, ITour } from "common";
+import { ITour } from "common";
 import LandmarkBox from "./LandmarkBox";
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import { StarIcon } from "@chakra-ui/icons";
-import LandmarkList from "./LandmarkList";
 
 type Props = {
   tour: ITour;
 };
 
-export default function TourLandmarkContainer({ tour }: Props) {
+export default function LandmarkContainer({ tour }: Props) {
   const [view, setView] = useState(false);
   return (
     <Box>
@@ -77,7 +76,30 @@ export default function TourLandmarkContainer({ tour }: Props) {
           </Tag>
         </VStack>
       ) : (
-        <LandmarkList landmarks={tour.landmarks} />
+        <VStack
+          gap={1}
+          padding={2}
+          maxH="100%"
+          w="100%"
+          css={{
+            "&::-webkit-scrollbar": {
+              width: "4px",
+            },
+            "&::-webkit-scrollbar-track": {
+              width: "6px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              background: "blue",
+              borderRadius: "24px",
+            },
+          }}
+        >
+          {tour.landmarks.map((landmark, index) => {
+            return (
+              <LandmarkBox landmark={landmark} key={index} checkable={true} />
+            );
+          })}
+        </VStack>
       )}
     </Box>
   );

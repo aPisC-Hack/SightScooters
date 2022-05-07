@@ -21,16 +21,9 @@ import MapPointSource from "../map/MapPointSource";
 type Props = {
   landmark: ILandmark;
   checkable: boolean;
-  setSelectedPlacesCallback?: Function;
-  setDeselectedPlacesCallback?: Function;
 };
 
-export default function LandmarkBox({
-  landmark,
-  checkable,
-  setSelectedPlacesCallback,
-  setDeselectedPlacesCallback,
-}: Props) {
+export default function LandmarkBox({ landmark, checkable }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleClose = () => {
     onClose();
@@ -50,15 +43,6 @@ export default function LandmarkBox({
           top={1}
           size="lg"
           colorScheme="gray"
-          onChange={(e) => {
-            if (e.target.checked) {
-              setSelectedPlacesCallback &&
-                setSelectedPlacesCallback(landmark.id);
-            } else {
-              setDeselectedPlacesCallback &&
-                setDeselectedPlacesCallback(landmark.id);
-            }
-          }}
         />
       )}
       <IconButton
