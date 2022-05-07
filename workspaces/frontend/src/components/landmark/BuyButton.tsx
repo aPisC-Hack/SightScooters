@@ -9,6 +9,7 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
+  ModalHeader,
   Button,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -36,12 +37,14 @@ export default function BuyButton({ tour, buyCallback }: Props) {
       <Modal isOpen={isOpen} onClose={onClose} size="4xl">
         <ModalOverlay />
         <ModalContent>
-          <ModalBody padding={2}>
+          <ModalHeader>
             <ModalCloseButton zIndex={999} />
-            <Box height="80vh">
+          </ModalHeader>
+          <ModalBody padding={2}>
+            <VStack width="100%" p={8}>
               <Button onClick={handleClick}>Free ride ($$$)</Button>
               <Button onClick={handleClick}>Buy period ($$$)</Button>
-            </Box>
+            </VStack>
           </ModalBody>
         </ModalContent>
       </Modal>
