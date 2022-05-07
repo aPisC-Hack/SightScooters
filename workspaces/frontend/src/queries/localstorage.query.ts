@@ -1,11 +1,12 @@
 import { v4 as uuidv4 } from "uuid";
 
 async function set(key: string, value: any) {
-  localStorage.setItem(key, value);
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
 async function get(key: string): Promise<any> {
-  return localStorage.getItem(key);
+  const data = localStorage.getItem(key);
+  return data && JSON.parse(data);
 }
 
 async function insertEntity(key: string, entity: any) {
