@@ -41,9 +41,12 @@ export default function Map({
     (window as any).map = _map;
   }, [mapBoxRef.current]);
 
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [size, setSize] = useState([0, 0]);
+
   return (
     <MapContext.Provider value={map}>
-      <Box ref={mapBoxRef} w="100%" h="80vh" className="map-container" />
+      <Box ref={mapBoxRef} w="100%" h="100%" className="map-container" />
       <Box display="none">{children}</Box>
     </MapContext.Provider>
   );

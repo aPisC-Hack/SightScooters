@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 export default function Layout({ children }: PropsWithChildren<{}>) {
   const { isOpen, onToggle, onClose } = useDisclosure();
   return (
-    <Box pos="relative">
+    <Box pos="relative" height="100%">
       <Box pt={14} flex={1} height="100%" overflow="auto">
         {children}
       </Box>
@@ -83,6 +83,14 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
                 colorScheme="cyan"
               >
                 My landmarks
+              </Button>
+              <Button
+                onClick={onClose}
+                as={Link}
+                to="/navigate/3"
+                colorScheme="cyan"
+              >
+                Test nav
               </Button>
             </VStack>
           </DrawerBody>

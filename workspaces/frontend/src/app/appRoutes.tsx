@@ -7,6 +7,7 @@ import TourPage from "../pages/TourPage";
 import MyTourPage from "../pages/MyToursPage";
 import MyLandmarksPage from "../pages/MyLandmarksPage";
 import { TourQuery } from "../queries/tour.query";
+import NavigationPage from "../pages/NavigationPage";
 
 export const appRoutes = (
   <Routes>
@@ -17,6 +18,7 @@ export const appRoutes = (
     <Route path="/mytours" element={<MyTourPage />} />,
     <Route path="/mylandmarks" element={<MyLandmarksPage />} />,
     <Route path="/landmark" element={<LandmarkPage />} />,
+    <Route path="/navigate/:tourId" element={<NavigationPage />} />,
     <Route
       path="/tours"
       element={
