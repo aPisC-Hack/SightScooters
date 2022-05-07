@@ -25,7 +25,12 @@ export default function MapBox({}: Props) {
 
   return (
     <Box>
-      <Box height={320} ref={mapContainer} className="map-container" />
+      <Box
+        height="80vh"
+        width="100%"
+        ref={mapContainer}
+        className="map-container"
+      />
     </Box>
   );
 }

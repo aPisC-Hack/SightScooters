@@ -2,6 +2,7 @@ FROM node:16-alpine as builder
 WORKDIR /app
 
 COPY package.json package.json
+COPY workspaces/common workspaces/common
 COPY workspaces/frontend workspaces/frontend
 
 RUN yarn --production=false

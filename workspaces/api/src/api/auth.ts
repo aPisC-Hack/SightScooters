@@ -1,23 +1,25 @@
 import { Controller } from "../utils";
 import { Route } from "../utils/decorators";
-import {Landmark} from 'common'
+import { ILandmark } from "common";
 
 export default class AuthController extends Controller {
-  @Route.Get('/')
+  @Route.Get("/")
   async test() {
-    return { status: "OKkkk" }
+    return { status: "OKkkk" };
   }
 
   @Route.Get()
-  async landmark(): Promise<Landmark> {
+  async landmark(): Promise<ILandmark> {
     return {
+      ratingCount: 500,
+      time: 30,
       address: "",
-      coordinates: [0, 0],
-      description: "", 
+      coordinate: { latitude: 0, longitude: 0 },
+      description: "",
       id: "24185c1d-d9c3-4fe8-8102-3577447832f0",
       name: "",
       pictures: [],
-      rating: 5
-    }
+      rating: 5,
+    };
   }
 }
