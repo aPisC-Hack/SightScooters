@@ -1,86 +1,50 @@
-import {
-  Box,
-  Button,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
-import { IMarker } from "./IMarker";
-import { MarkerIcon } from "./MarkerIcon";
+import { Box } from "@chakra-ui/react";
+import mapboxgl from "mapbox-gl";
+import React, { PropsWithChildren, useEffect, useRef, useState } from "react";
 
-type Props = {
-  markers: Array<IMarker>;
-};
+interface IMapProps {
+  center?: [number, number];
+  zoom?: number;
+  scrollZoom?: boolean;
+}
 
-export default function Map({ markers }: Props) {
-  const [currentPosition, setCurrentPosition] = useState<[number, number]>([
-    0, 0,
-  ]);
-  const [mapId, setMapId] = useState(0);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [currentMarker, setCurrentMarker] = useState<IMarker | null>(null);
-  const handleClose = () => {
-    setCurrentMarker(null);
-    onClose();
-  };
+export const MapContext = React.createContext<mapboxgl.Map | null>(null);
+
+mapboxgl.accessToken =
+  "pk.eyJ1IjoibWFrYWlhcyIsImEiOiJjbDJ1dXE4ZWswNW1rM2xxbWNwNXNscXp1In0.ul-FWyyp5sCQFlewmUrcsg";
+
+export default function Map({
+  children,
+  center = [19.034959, 47.501958],
+  zoom = 13,
+  scrollZoom = true,
+}: PropsWithChildren<IMapProps>) {
+  const mapBoxRef = useRef<HTMLDivElement | null>(null);
+  const [map, setMap] = useState<mapboxgl.Map | null>(null);
+
   useEffect(() => {
-    setMapId(Math.random());
-  }, []);
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setCurrentPosition([position.coords.longitude, position.coords.latitude]);
+    if (!mapBoxRef.current) return;
+    if (!!map) return;
+
+    const _map = new mapboxgl.Map({
+      container: mapBoxRef.current as HTMLDivElement,
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: center,
+      zoom: zoom,
+      scrollZoom: scrollZoom,
     });
-  }, []);
-  return (
-    <Box width="100%" height="100%">
-      <MapContainer
-        whenCreated={(mapInstance) =>
-          setTimeout(() => mapInstance.invalidateSize(), 200)
-        }
-        key={mapId}
-        center={currentPosition}
-        zoom={12}
-        style={{ height: "100%", width: "100%" }}
-      >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {markers.map((marker, index) => {
-          return (
-            <Marker
-              key={index}
-              riseOnHover
-              icon={MarkerIcon}
-              position={[marker.longitude, marker.latitude]}
-              eventHandlers={{
-                click: (e) => {
-                  setCurrentMarker(marker);
-                  onOpen();
-                },
-              }}
-            ></Marker>
-          );
-        })}
-      </MapContainer>
-      <Modal isOpen={isOpen} onClose={handleClose} size="4xl">
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader></ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            {currentMarker && <Box>currentMarker.content</Box>}
-          </ModalBody>
 
-          <ModalFooter>
-            <Button onClick={handleClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </Box>
+    _map.on("load", () => {
+      setMap(_map);
+      console.log("Map loaded");
+    });
+    (window as any).map = _map;
+  }, [mapBoxRef.current]);
+
+  return (
+    <MapContext.Provider value={map}>
+      <Box ref={mapBoxRef} w="100%" h="80vh" className="map-container" />
+      <Box display="none">{children}</Box>
+    </MapContext.Provider>
   );
 }

@@ -1,11 +1,19 @@
 FROM node:16-alpine as builder
 WORKDIR /app
 
+# Copy package jsons
 COPY package.json package.json
+COPY workspaces/common/package.json workspaces/common/package.json
+COPY workspaces/frontend/package.json workspaces/frontend/package.json
+
+# Install dependencies 
+RUN yarn --production=false
+
+# Copy source codes
 COPY workspaces/common workspaces/common
 COPY workspaces/frontend workspaces/frontend
 
-RUN yarn --production=false
+# Build project
 RUN yarn workspaces run build
 
 

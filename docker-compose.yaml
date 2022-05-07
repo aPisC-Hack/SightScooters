@@ -10,6 +10,11 @@ services:
       context: .
       dockerfile: ./workspaces/frontend/Dockerfile
     restart: always
+  content:
+    build:
+      context: .
+      dockerfile: ./workspaces/content/Dockerfile
+    restart: always
   proxy:
     build:
       context: .

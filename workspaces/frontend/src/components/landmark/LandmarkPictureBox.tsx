@@ -3,9 +3,10 @@ import { Box, HStack, Image } from "@chakra-ui/react";
 
 type Props = {
   images: Array<string>;
+  height?: string;
 };
 
-export default function LandmarkPictureBox({ images }: Props) {
+export default function LandmarkPictureBox({ images, height = "15vh" }: Props) {
   return (
     <Box>
       <HStack
@@ -28,7 +29,7 @@ export default function LandmarkPictureBox({ images }: Props) {
       >
         {images.map((image, index) => {
           return (
-            <Box h="15vh">
+            <Box h={height} key={index}>
               <Image h="100%" w="auto" src={image} key={index} />
             </Box>
           );

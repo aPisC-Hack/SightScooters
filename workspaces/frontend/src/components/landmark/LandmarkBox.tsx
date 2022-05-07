@@ -1,35 +1,50 @@
 import React from "react";
 import {
   Box,
-  Button,
   IconButton,
+  Checkbox,
   VStack,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import LandmarkHeader from "./LandmarkHeader";
 import { IoMapSharp } from "react-icons/io5";
-import { ILandmark } from "../../../../common/src/ILandmark";
-import MapBox from "../map/MapBox";
+import { ILandmark } from "common";
+import Map from "../map/Map";
+import MapPointSource from "../map/MapPointSource";
 
 type Props = {
   landmark: ILandmark;
+  checkable: boolean;
 };
 
-export default function LandmarkBox({ landmark }: Props) {
+export default function LandmarkBox({ landmark, checkable }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleClose = () => {
     onClose();
   };
   return (
-    <Box padding={3} bg="blue.100" borderRadius={4} position="relative">
+    <Box
+      padding={3}
+      bg="blue.100"
+      borderRadius={4}
+      position="relative"
+      width="100%"
+    >
+      {checkable && (
+        <Checkbox
+          position="absolute"
+          left={1}
+          top={1}
+          size="lg"
+          colorScheme="gray"
+        />
+      )}
       <IconButton
         aria-label="Show map"
         icon={<IoMapSharp />}
@@ -53,7 +68,12 @@ export default function LandmarkBox({ landmark }: Props) {
           <ModalBody padding={2}>
             <ModalCloseButton zIndex={999} />
             <Box height="80vh">
-              <MapBox />
+              <Map>
+                <MapPointSource
+                  coordinate={landmark.coordinate}
+                  address={landmark.address}
+                />
+              </Map>
             </Box>
           </ModalBody>
         </ModalContent>
