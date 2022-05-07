@@ -50,12 +50,15 @@ export default class TourModel
     const tour  = await TourModel.findByPk(tourId) as TourModel;
     const landmark = await LandmarkModel.findByPk(landmarkId) as LandmarkModel;
 
-    const tags = [...tour?.tags, ...landmark?.tags]
+    const tags =[...new Set( [...tour?.tags, ...landmark?.tags])]
 
+    tour.tags = tags;
 
     await TourLandmarkModel.create({
       tourId,
       landmarkId,
     });
+
+    await tour.save();
   }
 }
