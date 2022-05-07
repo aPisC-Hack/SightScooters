@@ -35,25 +35,7 @@ export default function TourLandmarkContainer({ tour }: Props) {
         </Button>
       </HStack>
       {view ? (
-        <VStack
-          alignItems="start"
-          gap={1}
-          padding={2}
-          maxH="100%"
-          w="100%"
-          css={{
-            "&::-webkit-scrollbar": {
-              width: "4px",
-            },
-            "&::-webkit-scrollbar-track": {
-              width: "6px",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              background: "blue",
-              borderRadius: "24px",
-            },
-          }}
-        >
+        <VStack alignItems="start" gap={1} padding={2} maxH="100%" w="100%">
           <LandmarkPictureBox
             height="25vh"
             images={tour.landmarks.reduce<Array<string>>(
@@ -77,7 +59,7 @@ export default function TourLandmarkContainer({ tour }: Props) {
           </Tag>
         </VStack>
       ) : (
-        <LandmarkList landmarks={tour.landmarks} />
+        <LandmarkList checkable={false} landmarks={tour.landmarks} />
       )}
     </Box>
   );

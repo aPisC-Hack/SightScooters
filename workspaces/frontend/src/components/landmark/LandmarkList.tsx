@@ -5,6 +5,7 @@ import LandmarkBox from "./LandmarkBox";
 
 type Props = {
   landmarks: Array<ILandmark>;
+  checkable?: boolean;
   setSelectedPlacesCallback?: Function;
   setDeselectedPlacesCallback?: Function;
 };
@@ -13,6 +14,7 @@ export default function LandmarkList({
   landmarks,
   setSelectedPlacesCallback,
   setDeselectedPlacesCallback,
+  checkable = true,
 }: Props) {
   return (
     <VStack gap={1} padding={2} maxH="100%" w="100%" overflowY="scroll">
@@ -21,7 +23,7 @@ export default function LandmarkList({
           <LandmarkBox
             landmark={landmark}
             key={index}
-            checkable={true}
+            checkable={checkable}
             setSelectedPlacesCallback={setSelectedPlacesCallback}
             setDeselectedPlacesCallback={setDeselectedPlacesCallback}
           />
