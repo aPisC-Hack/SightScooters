@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {
   Box,
+  Center,
   IconButton,
   VStack,
   Modal,
@@ -8,19 +9,20 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
+  Spinner,
   useDisclosure,
 } from "@chakra-ui/react";
 import LandmarkPictureBox from "./LandmarkPictureBox";
 import LandmarkHeader from "./LandmarkHeader";
 import { IoMapSharp } from "react-icons/io5";
-import { ILandmark } from "../../../../common/src/ILandmark";
 import MapBox from "../map/MapBox";
+import { ITour, ICoordinate } from "common";
 
 type Props = {
-  landmark: ILandmark;
+  tour: ITour;
 };
 
-export default function LandmarkBox({ landmark }: Props) {
+export default function TourBox({ tour }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleClose = () => {
     onClose();
@@ -41,8 +43,13 @@ export default function LandmarkBox({ landmark }: Props) {
         onClick={onOpen}
       />
       <VStack width="100%">
-        <LandmarkPictureBox images={landmark.pictures} />
-        <LandmarkHeader landmarkData={landmark} />
+        <LandmarkPictureBox
+          images={tour.landmarks.reduce<Array<string>>(
+            (prev, landmark) => [...prev, ...landmark.pictures],
+            []
+          )}
+        />
+        <LandmarkHeader landmarkData={tour} />
       </VStack>
       <Modal isOpen={isOpen} onClose={handleClose} size="4xl">
         <ModalOverlay />
@@ -50,7 +57,20 @@ export default function LandmarkBox({ landmark }: Props) {
           <ModalBody padding={2}>
             <ModalCloseButton zIndex={999} />
             <Box height="80vh">
-              {/*<MapBox coordinates={landmark.coordinates} />*/}
+              <Suspense
+                fallback={
+                  <Center>
+                    <Spinner size="xl" />
+                  </Center>
+                }
+              >
+                <MapBox
+                  coordinates={tour.landmarks.reduce<Array<ICoordinate>>(
+                    (prev, landmark) => [...prev, landmark.coordinate],
+                    []
+                  )}
+                />
+              </Suspense>
             </Box>
           </ModalBody>
         </ModalContent>

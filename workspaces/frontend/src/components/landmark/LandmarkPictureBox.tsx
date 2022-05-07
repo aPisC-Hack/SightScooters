@@ -28,7 +28,7 @@ export default function LandmarkPictureBox({ images }: Props) {
       >
         {images.map((image, index) => {
           return (
-            <Box h="15vh">
+            <Box h="15vh" key={index}>
               <Image h="100%" w="auto" src={image} key={index} />
             </Box>
           );

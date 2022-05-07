@@ -6,20 +6,19 @@ import Map from "./components/map/Map";
 import { IMarker } from "./components/map/IMarker";
 import MapBox from "./components/map/MapBox";
 import LandmarkContainer from "./components/landmark/LandmarkContainer";
+import TourContainer from "./components/landmark/TourContainer";
+import { useApiCall } from "./hooks/useApiCall";
+import { TourQuery } from "./queries/tour.query";
 
 function App() {
-  const demoMarkers: Array<IMarker> = [
-    { longitude: 47.555963, latitude: 19.046605, content: "Content" },
-    {
-      longitude: 47.557852,
-      latitude: 19.034627,
-      content: "Some different content",
-    },
-  ];
+  const tourApi = useApiCall(() => TourQuery.getOne("id"));
+  if (tourApi.value == null) {
+    return null;
+  }
   return (
     <Box height="100vh" width="100%">
       {/*<MapBox markers={demoMarkers} />*/}
-      <LandmarkContainer />
+      <TourContainer tours={[tourApi.value]} />
     </Box>
   );
 }

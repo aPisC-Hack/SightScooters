@@ -1,27 +1,70 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Box } from "@chakra-ui/react";
+import React, { useRef, useEffect, useState, Suspense } from "react";
+import { Box, Center, Spinner } from "@chakra-ui/react";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import { ICoordinate } from "../../../../common/src/ICoordinate";
+import { createNoSubstitutionTemplateLiteral } from "typescript";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWFrYWlhcyIsImEiOiJjbDJ1dXE4ZWswNW1rM2xxbWNwNXNscXp1In0.ul-FWyyp5sCQFlewmUrcsg";
 
-type Props = {};
+type Props = {
+  coordinates: Array<ICoordinate>;
+};
 
-export default function MapBox({}: Props) {
+export default function MapBox({ coordinates }: Props) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(9);
+  const [currentPosition, setCurrentPosition] = useState<[number, number]>([
+    0, 0,
+  ]);
   useEffect(() => {
-    if (map && map.current) return; // initialize map only once
+    console.log("reeee ");
+    navigator.geolocation.getCurrentPosition((position) => {
+      setCurrentPosition([position.coords.longitude, position.coords.latitude]);
+    });
+  }, []);
+
+  //https://docs.mapbox.com/mapbox-gl-js/example/geojson-line/
+  useEffect(() => {
+    if (map.current && mapContainer.current) return;
+    if (!mapContainer.current) return;
+    console.log("asdf");
     map.current = new mapboxgl.Map({
       container: mapContainer.current as HTMLDivElement,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [lng, lat],
-      zoom: zoom,
+      center: currentPosition,
+      zoom: 10,
+      scrollZoom: true,
     });
-  });
+    map.current.on("load", () => {
+      map?.current?.addSource("route", {
+        type: "geojson",
+        data: {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "LineString",
+            coordinates: coordinates.map((coordinate) => {
+              return [coordinate.longitude, coordinate.latitude];
+            }),
+          },
+        },
+      });
+      map?.current?.addLayer({
+        id: "route",
+        type: "line",
+        source: "route",
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#888",
+          "line-width": 8,
+        },
+      });
+    });
+  }, [mapContainer.current]);
 
   return (
     <Box>
