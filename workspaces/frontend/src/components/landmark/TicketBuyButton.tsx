@@ -1,5 +1,6 @@
-import { Button } from "@chakra-ui/react";
+import { Button, IconButton } from "@chakra-ui/react";
 import { ILandmark } from "common";
+import { IoBasket } from "react-icons/io5";
 import { LandmarkQuery } from "../../queries/landmark.query";
 
 type Props = {
@@ -9,17 +10,18 @@ type Props = {
 
 export default function TicketBuyButton({ landmark, callback }: Props) {
   return (
-    <Button
-      size="sm"
-      position="absolute"
-      left={1}
-      top={1}
+    <IconButton
+      aria-label="Buy ticket"
+      icon={<IoBasket />}
+      colorScheme="gray"
+      padding={2}
+      fontSize="xl"
+      borderRadius="50%"
       onClick={async () => {
         await LandmarkQuery.saveAsMyLandmark(landmark);
         callback();
       }}
-    >
-      Buy ($$$)
-    </Button>
+      shadow="lg"
+    />
   );
 }

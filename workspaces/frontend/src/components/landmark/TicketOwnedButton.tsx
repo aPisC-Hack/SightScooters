@@ -8,9 +8,6 @@ export default function TicketOwnedButton({}: Props) {
     <IconButton
       aria-label="Already bought"
       icon={<IoTicket />}
-      position="absolute"
-      right={12}
-      top={1}
       colorScheme="green"
       padding={2}
       fontSize="xl"

@@ -36,7 +36,13 @@ export default function LandmarkPage({}: Props) {
   };
   if (!api.value) return null;
   return (
-    <VStack height="100%" gap={1} marginBottom={20}>
+    <VStack
+      height="100%"
+      gap={1}
+      marginBottom={20}
+      width="100%"
+      align="stretch"
+    >
       <LandmarkList
         checkable={true}
         checkedIds={selectedPlaces}

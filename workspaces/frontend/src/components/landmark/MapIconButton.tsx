@@ -31,10 +31,6 @@ export default function MapIconButton({ coordinate, address }: Props) {
       <IconButton
         aria-label="Show map"
         icon={<IoMapSharp />}
-        position="absolute"
-        right={0}
-        top={0}
-        margin={1}
         colorScheme="gray"
         padding={2}
         fontSize="xl"

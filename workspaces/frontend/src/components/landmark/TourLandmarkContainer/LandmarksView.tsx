@@ -1,3 +1,4 @@
+import { VStack } from "@chakra-ui/react";
 import React from "react";
 import { ILandmark } from "../../../../../common/src/ILandmark";
 import LandmarkList from "../LandmarkList";
@@ -7,5 +8,9 @@ type Props = {
 };
 
 export default function LandmarksView({ landmarks }: Props) {
-  return <LandmarkList buyable={true} landmarks={landmarks} />;
+  return (
+    <VStack gap={1} width="100%">
+      <LandmarkList buyable={true} landmarks={landmarks} />
+    </VStack>
+  );
 }

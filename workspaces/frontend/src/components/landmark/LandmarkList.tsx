@@ -27,8 +27,8 @@ export default function LandmarkList({
   checkedIds,
 }: Props) {
   const [tags, setTags] = React.useState<Array<string>>([]);
-  const api = useApiCall(() => LandmarkQuery.getMyLandmarks());
-  if (!api?.value) return <MySpinner />;
+  const apiOwned = useApiCall(() => LandmarkQuery.getMyLandmarks());
+  if (!apiOwned?.value) return <MySpinner />;
   return (
     <>
       <ReactTagInput
@@ -59,21 +59,21 @@ export default function LandmarkList({
               onCheckedChange?.(landmark.id, !checkedIds?.includes(landmark.id))
             }
           >
-            <MapIconButton
-              address={landmark.address}
-              coordinate={landmark.coordinate}
-            />
-
-            {(api.value as ILandmark[])
-              .map((item) => item.id)
+            {(apiOwned.value as ILandmark[])
+              .map((landmark2) => landmark2.id)
               .includes(landmark.id) ? (
               <TicketOwnedButton />
             ) : !checkable && buyable ? (
               <TicketBuyButton
                 landmark={landmark}
-                callback={() => api.execute()}
+                callback={() => apiOwned.execute()}
               />
             ) : null}
+
+            <MapIconButton
+              address={landmark.address}
+              coordinate={landmark.coordinate}
+            />
           </LandmarkBox>
         ))}
     </>
