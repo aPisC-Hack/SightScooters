@@ -1,29 +1,12 @@
 import { ILandmark } from "common";
 import { useApiCall } from "../../hooks/useApiCall";
-import { TourQuery } from "../../queries/tour.query";
 import { LandmarkQuery } from "../../queries/landmark.query";
-import { useNavigate } from "react-router-dom";
-import {
-  Box,
-  Button,
-  VStack,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalOverlay,
-  ModalFooter,
-  useDisclosure,
-  Input,
-  FormControl,
-  FormLabel,
-  Textarea,
-  HStack,
-} from "@chakra-ui/react";
-
+import { Button, VStack, useDisclosure, HStack } from "@chakra-ui/react";
 import { useState } from "react";
 import LandmarkList from "../../components/landmark/LandmarkList";
 import CreateTourModal from "./CreateTourModal";
+import EmptyPage from "../../components/EmptyPage";
+import MySpinner from "../../components/MySpinner";
 
 type Props = {};
 
@@ -34,7 +17,10 @@ export default function LandmarkPage({}: Props) {
   const handleClose = () => {
     onClose();
   };
-  if (!api.value) return null;
+  if (!api.value) return <MySpinner />;
+  if (api.value.length == 0) {
+    <EmptyPage text="Wow, you are very curious!" />;
+  }
   return (
     <VStack
       height="100%"

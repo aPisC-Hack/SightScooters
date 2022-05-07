@@ -9,7 +9,7 @@ type Props = {
 export default function EmptyPage({ text }: Props) {
   return (
     <Center height="100%" width="100%">
-      <VStack>
+      <VStack padding={4}>
         <MdElectricScooter size="3xl" />
         <Box>{text}</Box>
       </VStack>
