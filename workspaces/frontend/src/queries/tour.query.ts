@@ -7,13 +7,16 @@ async function getOne(id: string | undefined): Promise<ITour | undefined> {
   if (!id) return undefined;
 
   return (
-    LocalStorageQuery.getEntity("customTours", id) ||
-    axios.get(`https://crafthack.apisc.host/api/tour/${id}`).then((r) => r.data)
+    (await LocalStorageQuery.getEntity("customTours", id)) ||
+    (await axios
+      .get(`https://crafthack.apisc.host/api/tour/${id}`)
+      .then((r) => r.data))
   );
 }
 
 async function getNear(): Promise<ITour[]> {
-  const customs: Array<any> = (await LocalStorageQuery.get("customTours")) || [];
+  const customs: Array<any> =
+    (await LocalStorageQuery.get("customTours")) || [];
   const server = await axios
     .get(`https://crafthack.apisc.host/api/tour`)
     .then((r) => r.data);

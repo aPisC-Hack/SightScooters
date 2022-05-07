@@ -11,10 +11,10 @@ import TourInfoPage from "../pages/TourInfoPage";
 import TourPage from "../pages/TourPage";
 import WelcomePage from "../pages/WelcomePage/WelcomePage";
 
-
 export const appRoutes = (
   <Routes>
     {/*<Route path="/" element={<WelcomePage />} />,*/}
+    <Route path="/" element={<TourContainer />} />,
     <Route path="/recommendation" element={<RecommendationPage />} />,
     <Route path="/tour-info/:tourId" element={<TourInfoPage />} />,
     <Route path="/tour/:tourId" element={<TourPage />} />,
