@@ -2,23 +2,13 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import "mapbox-gl/dist/mapbox-gl.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Center, ChakraProvider, Spinner } from "@chakra-ui/react";
+import App from "./app";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider>
-      <Suspense
-        fallback={
-          <Center height="100vh">
-            <Spinner size="xl" />
-          </Center>
-        }
-      >
-        <App />
-      </Suspense>
-    </ChakraProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
