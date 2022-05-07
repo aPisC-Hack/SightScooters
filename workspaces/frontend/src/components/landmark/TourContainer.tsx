@@ -27,7 +27,6 @@ export default function TourContainer({ forSale, toursCallable }: Props) {
         tags={tags}
         onChange={(newTags: Array<string>) => setTags(newTags)}
       />
-      {/*filter(tour => tags.length == 0 || tags?.find((tag) => tour.tags?.includes(tag)) */}
       {tours
         .filter(
           (tour) =>

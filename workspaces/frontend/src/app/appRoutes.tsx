@@ -19,7 +19,7 @@ export const appRoutes = (
     <Route path="/tour/:tourId" element={<TourPage />} />,
     <Route path="/mytours" element={<MyTourPage />} />,
     <Route path="/mylandmarks" element={<MyLandmarksPage />} />,
-    <Route path="/landmark" element={<LandmarkPage />} />,
+    {ContainerizedRoute({ path: "/landmark", element: <LandmarkPage /> })}
     <Route path="/navigate/:tourId" element={<NavigationPage />} />,
     {ContainerizedRoute({
       path: "/tours",

@@ -35,68 +35,47 @@ export default function LandmarkList({
         tags={tags}
         onChange={(newTags: Array<string>) => setTags(newTags)}
       />
-      <VStack gap={1} padding={2} maxH="100%" w="100%" overflowY="scroll">
-        {landmarks.map((landmark, index) => {
-          if (tags.find((tag) => landmark.tags.includes(tag))) {
-            return (
-              <LandmarkBox landmark={landmark} key={index}>
-                {checkable && !buyable && (
-                  <CheckableBox
-                    checked={!!checkedIds?.includes(landmark.id)}
-                    onCheckedChange={(checked) =>
-                      onCheckedChange?.(landmark.id, checked)
-                    }
-                  />
-                )}
-                <MapIconButton
-                  address={landmark.address}
-                  coordinate={landmark.coordinate}
+      {landmarks
+        .filter(
+          (landmark) =>
+            tags.length == 0 || tags.find((tag) => landmark.tags.includes(tag))
+        )
+        .map((landmark, index) => (
+          <LandmarkBox
+            landmark={landmark}
+            key={index}
+            leftChildren={
+              checkable &&
+              !buyable && (
+                <CheckableBox
+                  checked={!!checkedIds?.includes(landmark.id)}
+                  onCheckedChange={(checked) =>
+                    onCheckedChange?.(landmark.id, checked)
+                  }
                 />
+              )
+            }
+            onClick={() =>
+              onCheckedChange?.(landmark.id, !checkedIds?.includes(landmark.id))
+            }
+          >
+            <MapIconButton
+              address={landmark.address}
+              coordinate={landmark.coordinate}
+            />
 
-                {(api.value as ILandmark[])
-                  .map((item) => item.id)
-                  .includes(landmark.id) ? (
-                  <TicketOwnedButton />
-                ) : !checkable && buyable ? (
-                  <TicketBuyButton
-                    landmark={landmark}
-                    callback={() => api.execute()}
-                  />
-                ) : null}
-              </LandmarkBox>
-            );
-          }
-          if (tags.length == 0) {
-            return (
-              <LandmarkBox landmark={landmark} key={index}>
-                {checkable && !buyable && (
-                  <CheckableBox
-                    checked={!!checkedIds?.includes(landmark.id)}
-                    onCheckedChange={(checked) =>
-                      onCheckedChange?.(landmark.id, checked)
-                    }
-                  />
-                )}
-                <MapIconButton
-                  address={landmark.address}
-                  coordinate={landmark.coordinate}
-                />
-
-                {(api.value as ILandmark[])
-                  .map((item) => item.id)
-                  .includes(landmark.id) ? (
-                  <TicketOwnedButton />
-                ) : !checkable && buyable ? (
-                  <TicketBuyButton
-                    landmark={landmark}
-                    callback={() => api.execute()}
-                  />
-                ) : null}
-              </LandmarkBox>
-            );
-          }
-        })}
-      </VStack>
+            {(api.value as ILandmark[])
+              .map((item) => item.id)
+              .includes(landmark.id) ? (
+              <TicketOwnedButton />
+            ) : !checkable && buyable ? (
+              <TicketBuyButton
+                landmark={landmark}
+                callback={() => api.execute()}
+              />
+            ) : null}
+          </LandmarkBox>
+        ))}
     </>
   );
 }

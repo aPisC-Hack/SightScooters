@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox } from "@chakra-ui/react";
+import { Box, Checkbox, Circle } from "@chakra-ui/react";
 
 type Props = {
   checked: boolean;
@@ -8,18 +8,15 @@ type Props = {
 
 export default function CheckableBox({ checked, onCheckedChange }: Props) {
   return (
-    <Checkbox
-      position="absolute"
-      padding={2}
-      borderRadius={4}
-      opacity={1}
-      bg="blue.100"
-      left={0}
-      top={0}
-      size="lg"
-      colorScheme="gray"
-      isChecked={checked}
-      onChange={(e) => onCheckedChange?.(e.target.checked)}
-    />
+    <Box borderRadius={4} bg="cyan.100" p={2} lineHeight={0}>
+      <Checkbox
+        opacity={1}
+        colorScheme="cyan"
+        bg="white"
+        size="lg"
+        isChecked={checked}
+        onChange={(e) => onCheckedChange?.(e.target.checked)}
+      />
+    </Box>
   );
 }

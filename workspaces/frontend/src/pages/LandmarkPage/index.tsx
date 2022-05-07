@@ -18,98 +18,53 @@ import {
   FormControl,
   FormLabel,
   Textarea,
+  HStack,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
 import LandmarkList from "../../components/landmark/LandmarkList";
-
-interface IFormData {
-  name: string;
-  description: string;
-}
+import CreateTourModal from "./CreateTourModal";
 
 type Props = {};
 
 export default function LandmarkPage({}: Props) {
-  const navigate = useNavigate();
   const api = useApiCall(() => LandmarkQuery.getNear());
   const [selectedPlaces, setSelectedPlaces] = useState<Array<string>>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [formData, setFormData] = useState<IFormData>({
-    name: "",
-    description: "",
-  });
   const handleClose = () => {
     onClose();
   };
   if (!api.value) return null;
   return (
-    <>
-      <VStack height="100%">
-        <LandmarkList
-          checkable={true}
-          checkedIds={selectedPlaces}
-          onCheckedChange={(id, checked) => {
-            if (checked) setSelectedPlaces((s) => [...s, id]);
-            else setSelectedPlaces((s) => s.filter((x) => x !== id));
-          }}
-          landmarks={api.value}
-        />
-        <Button disabled={selectedPlaces == []} onClick={onOpen}>
+    <VStack height="100%" gap={1} marginBottom={20}>
+      <LandmarkList
+        checkable={true}
+        checkedIds={selectedPlaces}
+        onCheckedChange={(id, checked) => {
+          if (checked) setSelectedPlaces((s) => [...s, id]);
+          else setSelectedPlaces((s) => s.filter((x) => x !== id));
+        }}
+        landmarks={api.value}
+      />
+      <HStack
+        p={4}
+        bg="white"
+        pos="fixed"
+        bottom={0}
+        left={0}
+        right={0}
+        justify="stretch"
+      >
+        <Button width="100%" disabled={!selectedPlaces.length} onClick={onOpen}>
           Continue
         </Button>
-      </VStack>
-      <Modal isOpen={isOpen} onClose={handleClose} size="4xl">
-        <ModalOverlay />
-        <ModalContent>
-          <ModalBody padding={2}>
-            <ModalCloseButton zIndex={999} />
-            <Box height="80vh">
-              <FormControl isRequired>
-                <FormLabel>Tour name:</FormLabel>
-                <Input
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                />
-              </FormControl>
-              <FormControl>
-                <FormLabel>Description:</FormLabel>
-                <Textarea
-                  onChange={(e) =>
-                    setFormData({ ...formData, description: e.target.value })
-                  }
-                />
-              </FormControl>
-            </Box>
-          </ModalBody>
-          <ModalFooter>
-            <Button
-              onClick={async () => {
-                const tour = await TourQuery.uploadCustomTour({
-                  price: 0,
-                  isGuided: false,
-                  tags: [],
-                  description: formData.description,
-                  id: "",
-                  landmarks: (api.value as Array<ILandmark>).filter(
-                    (landmark) => selectedPlaces.includes(landmark.id)
-                  ),
-                  name: formData.name,
-                  rating: 0,
-                  ratingCount: 0,
-                  time: (api.value as Array<ILandmark>)
-                    .filter((landmark) => selectedPlaces.includes(landmark.id))
-                    .reduce((prev, current) => (prev += current.time), 0),
-                });
-                navigate("/tours");
-              }}
-            >
-              Save
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
+      </HStack>
+      <CreateTourModal
+        handleClose={handleClose}
+        isOpen={isOpen}
+        landmarks={api.value as ILandmark[]}
+        selectedPlaces={selectedPlaces}
+      />
+    </VStack>
   );
 }
