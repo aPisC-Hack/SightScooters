@@ -27,7 +27,7 @@ export default function LandmarkHeader({ landmarkData }: Props) {
           >
             {landmarkData.time} min
           </Tag>
-          <HStack>
+          <HStack wrap="wrap">
             {landmarkData.tags &&
               landmarkData.tags.map((tag, index) => {
                 return <Tag key={index}>{tag}</Tag>;
