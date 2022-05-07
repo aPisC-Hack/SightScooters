@@ -21,9 +21,16 @@ import MapPointSource from "../map/MapPointSource";
 type Props = {
   landmark: ILandmark;
   checkable: boolean;
+  onCheckedChange: (checked: boolean) => void;
+  checked: boolean;
 };
 
-export default function LandmarkBox({ landmark, checkable }: Props) {
+export default function LandmarkBox({
+  landmark,
+  checkable,
+  checked,
+  onCheckedChange,
+}: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleClose = () => {
     onClose();
@@ -39,10 +46,16 @@ export default function LandmarkBox({ landmark, checkable }: Props) {
       {checkable && (
         <Checkbox
           position="absolute"
-          left={1}
-          top={1}
+          padding={2}
+          borderRadius={4}
+          opacity={1}
+          bg="blue.100"
+          left={0}
+          top={0}
           size="lg"
           colorScheme="gray"
+          isChecked={checked}
+          onChange={(e) => onCheckedChange(e.target.checked)}
         />
       )}
       <IconButton
@@ -58,7 +71,7 @@ export default function LandmarkBox({ landmark, checkable }: Props) {
         borderRadius="50%"
         onClick={onOpen}
       />
-      <VStack width="100%">
+      <VStack width="100%" onClick={() => onCheckedChange(!checked)}>
         <LandmarkPictureBox images={landmark.pictures} />
         <LandmarkHeader landmarkData={landmark} />
       </VStack>
