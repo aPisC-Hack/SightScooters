@@ -3,8 +3,8 @@ import TourModel from "../models/tour.model";
 
 export default async function () {
   const tour = await TourModel.create({
-    "name":"Népligeti kiruccanás",
-    "description":"A Hősök terétől elindulva egy kis hangvételű túra a Városligetben a Vajdahunyad várát meglátogatva.",
+    "name":"City park - Rolling hard",
+    "description":"Beginning from the Hősök tere, this is a small ride through the City Park, concluding at Vajdahunyad vára.",
     "time": 10,
     "distance": "1 km",
     "rating": "4.3",
