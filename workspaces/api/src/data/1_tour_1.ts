@@ -5,7 +5,7 @@ export default async function () {
   const tour = await TourModel.create({
     "name":"Népligeti kiruccanás",
     "description":"A Hősök terétől elindulva egy kis hangvételű túra a Városligetben a Vajdahunyad várát meglátogatva.",
-    "time": "10p",
+    "time": 10,
     "distance": "1 km",
     "rating": "4.3",
     "ratingCount": "666",     
