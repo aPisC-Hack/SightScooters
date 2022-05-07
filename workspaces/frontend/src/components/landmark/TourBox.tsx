@@ -20,6 +20,7 @@ import MapPath from "../map/MapPath";
 import BuyButton from "./BuyButton";
 import MapModal from "../map/MapModal";
 import GuideInfo from "./GuideInfo";
+import ScaleFadeAnimation from "../animations/ScaleFadeAnimation";
 
 type Props = {
   tour: ITour;

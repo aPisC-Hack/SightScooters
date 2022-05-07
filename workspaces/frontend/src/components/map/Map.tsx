@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import mapboxgl from "mapbox-gl";
 import React, { PropsWithChildren, useEffect, useRef, useState } from "react";
+import MySpinner from "../MySpinner";
 
 interface IMapProps {
   center?: [number, number];
@@ -43,11 +44,11 @@ export default function Map({
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState([0, 0]);
-
   return (
     <MapContext.Provider value={map}>
       <Box ref={mapBoxRef} w="100%" h="100%" className="map-container" />
       <Box display="none">{children}</Box>
+      {!map && <MySpinner />}
     </MapContext.Provider>
   );
 }
