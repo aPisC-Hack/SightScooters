@@ -7,10 +7,11 @@ import { TourQuery } from "../../queries/tour.query";
 import { appendFile } from "fs";
 
 type Props = {
+  forSale: boolean;
   toursCallable: () => Promise<ITour[]>;
 };
 
-export default function TourContainer({ toursCallable }: Props) {
+export default function TourContainer({ forSale, toursCallable }: Props) {
   const api = useApiCall(toursCallable);
   if (!api?.value) return null;
   return (
@@ -22,7 +23,7 @@ export default function TourContainer({ toursCallable }: Props) {
               removeCallback={(id: string) =>
                 api.update(api.value?.filter((item) => item.id !== id))
               }
-              forSale={true}
+              forSale={forSale}
               tour={tour}
               key={index}
             />

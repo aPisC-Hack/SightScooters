@@ -9,5 +9,10 @@ type Props = {};
 export default function Index({}: Props) {
   const api = useApiCall(() => TourQuery.getMyTours());
   if (!api?.value) return null;
-  return <TourContainer toursCallable={() => TourQuery.getMyTours()} />;
+  return (
+    <TourContainer
+      forSale={false}
+      toursCallable={() => TourQuery.getMyTours()}
+    />
+  );
 }
