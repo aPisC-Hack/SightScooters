@@ -16,6 +16,7 @@ import {
 import { ITour } from "common";
 import { TourQuery } from "../../queries/tour.query";
 import { useApiCall } from "../../hooks/useApiCall";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   tour: ITour;
@@ -29,6 +30,7 @@ export default function BuyButton({ tour, buyCallback }: Props) {
     onClose();
     buyCallback(tour.id);
   };
+  const navigate = useNavigate();
   return (
     <>
       <Button size="sm" position="absolute" left={1} top={1} onClick={onOpen}>
@@ -42,7 +44,9 @@ export default function BuyButton({ tour, buyCallback }: Props) {
           </ModalHeader>
           <ModalBody padding={2}>
             <VStack width="100%" p={8}>
-              <Button onClick={handleClick}>Free ride ($$$)</Button>
+              <Button onClick={() => navigate("/navigate/" + tour.id)}>
+                Free ride ($$$)
+              </Button>
               <Button onClick={handleClick}>Buy period ($$$)</Button>
             </VStack>
           </ModalBody>
