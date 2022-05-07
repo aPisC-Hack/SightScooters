@@ -187,10 +187,10 @@ await LandmarkModel.create({
   "address": "Budapest, Szentendrei út 115, 1033",
   "time": 5,
   "pictures": [
-    config.contentService +  "/Burger/burger1.jpg",
-    config.contentService +  "/Burger/burger2.jpg",
-    config.contentService +  "/Burger/burger3.jpg",
-    config.contentService +  "/Burger/burger4.jpg"
+    config.contentService +  "/Auchan/auchan1.jpg",
+    config.contentService +  "/Auchan/auchan2.jpg",
+    config.contentService +  "/Auchan/auchan3.jpg",
+    config.contentService +  "/Auchan/auchan4.jpg"
   ],
 });
 
