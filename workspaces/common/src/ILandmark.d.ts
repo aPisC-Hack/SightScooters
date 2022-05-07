@@ -10,4 +10,5 @@ export interface ILandmark {
   ratingCount: number;
   pictures: Array<string>;
   time: number;
+  tags: Array<string>
 }

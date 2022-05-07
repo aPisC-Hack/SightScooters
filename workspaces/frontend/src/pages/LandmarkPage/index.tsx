@@ -87,6 +87,7 @@ export default function LandmarkPage({}: Props) {
             <Button
               onClick={async () => {
                 const tour = await TourQuery.uploadCustomTour({
+                  tags: [],
                   description: formData.description,
                   id: "",
                   landmarks: (api.value as Array<ILandmark>).filter(
