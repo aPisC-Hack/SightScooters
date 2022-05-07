@@ -6,6 +6,7 @@ import { ITour } from "../../../../common/src/ITour";
 import { coordinateDistance } from "../../components/map/coordinateDistance";
 import Map from "../../components/map/Map";
 import MapPath from "../../components/map/MapPath";
+import MapPointSource from "../../components/map/MapPointSource";
 import MapUser from "../../components/map/MapUser";
 import MySpinner from "../../components/MySpinner";
 import { useApiCall } from "../../hooks/useApiCall";
@@ -24,36 +25,38 @@ export default function NavigationPage({}: Props) {
   if (!api.value) return <MySpinner />;
   if (!coords) return <MySpinner />;
   const tour = api.value as ITour;
-  const landmarks = [...tour.landmarks];
+  const landmarks = tour.landmarks;
+  const sortedLandmarks = [...tour.landmarks];
 
   if (coords)
-    landmarks.sort(
+    sortedLandmarks.sort(
       (a, b) =>
-        coordinateDistance(b.coordinate, coords) -
-        coordinateDistance(a.coordinate, coords)
+        coordinateDistance(a.coordinate, coords) -
+        coordinateDistance(b.coordinate, coords)
     );
 
-  const nearestLandmark = landmarks[0];
-
-  console.log(
-    nearestLandmark,
-    coordinateDistance(nearestLandmark.coordinate, coords as ICoordinate)
-  );
+  const nearestLandmark = sortedLandmarks.filter(
+    (x) => coordinateDistance(x.coordinate, coords) < 0.0005
+  )[0];
 
   return (
     <Box width="100%" height="100%" pos="relative">
       <Map>
-        <MapUser />
         <MapPath
           coords={landmarks.reduce<Array<ICoordinate>>(
             (prev, landmark) => [...prev, landmark.coordinate],
             []
           )}
         />
+
+        <MapUser />
+        {landmarks.map((x) => (
+          <MapPointSource coordinate={x.coordinate} address={x.name} />
+        ))}
       </Map>
-      <Box pos="absolute" top={0} left={0} right={0}>
+      {nearestLandmark && (
         <LandmarkNavigationPanel landmark={nearestLandmark} />
-      </Box>
+      )}
     </Box>
   );
 }
