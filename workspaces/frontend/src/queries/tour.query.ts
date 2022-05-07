@@ -27,4 +27,12 @@ async function uploadCustomTour(tour: ITour) {
   return await LocalStorageQuery.insertEntity("customTours", tour);
 }
 
-export const TourQuery = { getOne, getNear, uploadCustomTour };
+async function saveAsMyTour(tour: ITour) {
+  return await LocalStorageQuery.insertEntity("myTours", {tour: tour});
+}
+
+async function getMyTours() : Promise<ITour[]>{
+  return (await LocalStorageQuery.get("myTours") || []).map((item: any) => item.tour);
+}
+
+export const TourQuery = { getOne, getNear, uploadCustomTour, getMyTours, saveAsMyTour };
