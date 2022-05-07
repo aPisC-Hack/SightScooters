@@ -4,35 +4,29 @@ import { ITour } from "common";
 import TourBox from "./TourBox";
 import { useApiCall } from "../../hooks/useApiCall";
 import { TourQuery } from "../../queries/tour.query";
+import { appendFile } from "fs";
 
-type Props = {};
+type Props = {
+  toursCallable: () => Promise<ITour[]>;
+};
 
-export default function TourContainer({}: Props) {
-  const api = useApiCall(() => TourQuery.getNear());
-
-  if (!api.value) return null;
+export default function TourContainer({ toursCallable }: Props) {
+  const api = useApiCall(toursCallable);
+  if (!api?.value) return null;
   return (
     <Box>
-      <VStack
-        gap={1}
-        padding={2}
-        maxH="100%"
-        w="100%"
-        css={{
-          "&::-webkit-scrollbar": {
-            width: "4px",
-          },
-          "&::-webkit-scrollbar-track": {
-            width: "6px",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            background: "blue",
-            borderRadius: "24px",
-          },
-        }}
-      >
+      <VStack gap={1} padding={2} maxH="100%" w="100%">
         {api.value.map((tour, index) => {
-          return <TourBox tour={tour} key={index} />;
+          return (
+            <TourBox
+              removeCallback={(id: string) =>
+                api.update(api.value?.filter((item) => item.id !== id))
+              }
+              forSale={true}
+              tour={tour}
+              key={index}
+            />
+          );
         })}
       </VStack>
     </Box>

@@ -1,16 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { ITour } from "../../../common/src/ITour";
 import TourContainer from "../components/landmark/TourContainer";
-import Map from "../components/map/Map";
-import MapLayer from "../components/map/MapLayer";
-import MapPath from "../components/map/MapPath";
-import MapSource from "../components/map/MapSource";
 import LandmarkPage from "../pages/LandmarkPage";
 import RecommendationPage from "../pages/RecommendationPage";
 import TourInfoPage from "../pages/TourInfoPage";
 import TourPage from "../pages/TourPage";
-import WelcomePage from "../pages/WelcomePage/WelcomePage";
-
+import MyTourPage from "../pages/MyToursPage";
+import { TourQuery } from "../queries/tour.query";
 
 export const appRoutes = (
   <Routes>
@@ -18,7 +13,22 @@ export const appRoutes = (
     <Route path="/recommendation" element={<RecommendationPage />} />,
     <Route path="/tour-info/:tourId" element={<TourInfoPage />} />,
     <Route path="/tour/:tourId" element={<TourPage />} />,
+    <Route path="/mytours" element={<MyTourPage />} />,
     <Route path="/landmark" element={<LandmarkPage />} />,
-    <Route path="/tours" element={<TourContainer />} />,
+    <Route
+      path="/tours"
+      element={
+        <TourContainer
+          toursCallable={async () => {
+            const custom = await TourQuery.getMyTours();
+            const all = await TourQuery.getNear();
+            return all.filter(
+              (item) => !custom.map((i) => i.id).includes(item.id)
+            );
+          }}
+        />
+      }
+    />
+    ,
   </Routes>
 );
