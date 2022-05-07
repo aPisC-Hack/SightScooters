@@ -6,6 +6,7 @@ interface IUseApiCall<TResult> {
   error: Error | null;
 
   execute: () => void;
+  update: (value?: TResult) => void;
 }
 
 export function useApiCall<TResult>(
@@ -29,6 +30,10 @@ export function useApiCall<TResult>(
     }
     setIsLoading(false);
   }, [callback]);
+
+  const update = useCallback((value) => {
+    setValue(value);
+  }, []);
   
   // eslint-disable-next-line
   useEffect(() => void(execute()), []);
@@ -39,5 +44,6 @@ export function useApiCall<TResult>(
     error,
 
     execute,
+    update
   };
 }

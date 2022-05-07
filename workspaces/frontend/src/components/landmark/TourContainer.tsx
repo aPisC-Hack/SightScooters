@@ -6,16 +6,27 @@ import { useApiCall } from "../../hooks/useApiCall";
 import { TourQuery } from "../../queries/tour.query";
 import MySpinner from "../MySpinner";
 
-type Props = {};
+type Props = {
+  toursCallable: () => Promise<ITour[]>;
+};
 
-export default function TourContainer({}: Props) {
-  const api = useApiCall(() => TourQuery.getNear());
+export default function TourContainer({ toursCallable }: Props) {
+  const api = useApiCall(toursCallable);
   if (!api.value) return <MySpinner />;
   return (
     <Box>
-      <VStack gap={1} padding={2} w="100%" align="stretch">
+      <VStack gap={1} padding={2} maxH="100%" w="100%">
         {api.value.map((tour, index) => {
-          return <TourBox tour={tour} key={index} />;
+          return (
+            <TourBox
+              removeCallback={(id: string) =>
+                api.update(api.value?.filter((item) => item.id !== id))
+              }
+              forSale={true}
+              tour={tour}
+              key={index}
+            />
+          );
         })}
       </VStack>
     </Box>
