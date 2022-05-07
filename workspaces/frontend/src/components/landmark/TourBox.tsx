@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Link } from "react-router-dom";
 import {
   Box,
   Center,
@@ -17,6 +17,8 @@ import LandmarkHeader from "./LandmarkHeader";
 import { IoMapSharp } from "react-icons/io5";
 import MapBox from "../map/MapBox";
 import { ITour, ICoordinate } from "common";
+import Map from "../map/Map";
+import MapPath from "../map/MapPath";
 
 type Props = {
   tour: ITour;
@@ -28,7 +30,7 @@ export default function TourBox({ tour }: Props) {
     onClose();
   };
   return (
-    <Box padding={3} bg="blue.100" borderRadius={4} position="relative">
+    <Box position="relative" width="100%">
       <IconButton
         aria-label="Show map"
         icon={<IoMapSharp />}
@@ -42,39 +44,32 @@ export default function TourBox({ tour }: Props) {
         borderRadius="50%"
         onClick={onOpen}
       />
-      <VStack width="100%">
-        <LandmarkPictureBox
-          images={tour.landmarks.reduce<Array<string>>(
-            (prev, landmark) => [...prev, ...landmark.pictures],
-            []
-          )}
-        />
-        <LandmarkHeader landmarkData={tour} />
-      </VStack>
-      <Modal isOpen={isOpen} onClose={handleClose} size="4xl">
-        <ModalOverlay />
-        <ModalContent>
-          <ModalBody padding={2}>
-            <ModalCloseButton zIndex={999} />
-            <Box height="80vh">
-              <Suspense
-                fallback={
-                  <Center>
-                    <Spinner size="xl" />
-                  </Center>
-                }
-              >
-                <MapBox
-                  coordinates={tour.landmarks.reduce<Array<ICoordinate>>(
-                    (prev, landmark) => [...prev, landmark.coordinate],
-                    []
-                  )}
-                />
-              </Suspense>
-            </Box>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+      <Link to={"/tour/" + tour.id}>
+        <Box padding={3} bg="blue.100" borderRadius={4} width="100%">
+          <VStack width="100%">
+            <LandmarkHeader landmarkData={tour} />
+          </VStack>
+          <Modal isOpen={isOpen} onClose={handleClose} size="4xl">
+            <ModalOverlay />
+            <ModalContent>
+              <ModalBody padding={2}>
+                <ModalCloseButton zIndex={999} />
+                <Box height="80vh">
+                  <Map>
+                    {" "}
+                    <MapPath
+                      coords={tour.landmarks.reduce<Array<ICoordinate>>(
+                        (prev, landmark) => [...prev, landmark.coordinate],
+                        []
+                      )}
+                    />
+                  </Map>
+                </Box>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+        </Box>
+      </Link>
     </Box>
   );
 }

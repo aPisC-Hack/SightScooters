@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useMap } from "./useMap";
 
-type Props = {};
+type Props = {
+  config: mapboxgl.AnyLayer;
+};
 
-export default function MapLayer({}: Props) {
+export default function MapLayer({ config }: Props) {
   const map = useMap();
 
   useEffect(() => {
@@ -11,19 +13,7 @@ export default function MapLayer({}: Props) {
 
     console.log("Register layer");
 
-    map.addLayer({
-      id: "route",
-      type: "line",
-      source: "route",
-      layout: {
-        "line-join": "round",
-        "line-cap": "round",
-      },
-      paint: {
-        "line-color": "#888",
-        "line-width": 8,
-      },
-    });
+    map.addLayer(config);
   }, [map]);
 
   return null;

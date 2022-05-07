@@ -16,7 +16,7 @@ mapboxgl.accessToken =
 export default function Map({
   children,
   center = [19.034959, 47.501958],
-  zoom = 10,
+  zoom = 13,
   scrollZoom = true,
 }: PropsWithChildren<IMapProps>) {
   const mapBoxRef = useRef<HTMLDivElement | null>(null);
@@ -43,13 +43,7 @@ export default function Map({
 
   return (
     <MapContext.Provider value={map}>
-      <Box
-        ref={mapBoxRef}
-        w="100vw"
-        h="100vh"
-        bg="red"
-        className="map-container"
-      />
+      <Box ref={mapBoxRef} w="100%" h="80vh" className="map-container" />
       <Box display="none">{children}</Box>
     </MapContext.Provider>
   );

@@ -1,27 +1,13 @@
 import React, { useEffect } from "react";
 import { useMap } from "./useMap";
 
-type Props = {};
+type Props = { coordinates: Array<[number, number]> };
 
-const coordinates = [
-  {
-    longitude: 47.501958,
-    latitude: 19.034959,
-  },
-  {
-    longitude: 47.496444,
-    latitude: 19.039577,
-  },
-];
-
-export default function MapSource({}: Props) {
+export default function MapSource({ coordinates }: Props) {
   const map = useMap();
 
   useEffect(() => {
     if (!map) return;
-
-    console.log("Register source");
-
     map.addSource("route", {
       type: "geojson",
       data: {
@@ -29,9 +15,7 @@ export default function MapSource({}: Props) {
         properties: {},
         geometry: {
           type: "LineString",
-          coordinates: coordinates.map((coordinate) => {
-            return [coordinate.latitude, coordinate.longitude];
-          }),
+          coordinates: coordinates,
         },
       },
     });

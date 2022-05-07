@@ -1,6 +1,9 @@
 import { ITour } from "../../../common/src/ITour";
 
-async function getOne(id: string): Promise<ITour> {
+async function getOne(id: string | undefined): Promise<ITour | undefined> {
+  if (!id) {
+    return undefined;
+  }
   return {
     description: "asdf",
     id: "fdsaédf",

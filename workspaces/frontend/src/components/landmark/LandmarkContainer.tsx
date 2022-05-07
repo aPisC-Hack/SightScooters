@@ -3,18 +3,11 @@ import { Box, VStack } from "@chakra-ui/react";
 import { ITour } from "common";
 import LandmarkBox from "./LandmarkBox";
 
-type Props = {};
+type Props = {
+  tour: ITour;
+};
 
-export default function LandmarkContainer({}: Props) {
-  const tour: ITour = {
-    id: "asdf",
-    description: "asdf",
-    rating: 2,
-    ratingCount: 2,
-    time: 30,
-    name: "TourName",
-    landmarks: [],
-  };
+export default function LandmarkContainer({ tour }: Props) {
   return (
     <Box>
       <VStack
