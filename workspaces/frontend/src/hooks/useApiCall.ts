@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface IUseApiCall<TResult> {
   value: TResult | null;
@@ -15,6 +15,8 @@ export function useApiCall<TResult>(
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
+  
+  
   const execute = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -27,7 +29,10 @@ export function useApiCall<TResult>(
     }
     setIsLoading(false);
   }, [callback]);
-
+  
+  // eslint-disable-next-line
+  useEffect(() => void(execute()), []);
+  
   return {
     value,
     isLoading,

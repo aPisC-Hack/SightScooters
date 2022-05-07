@@ -1,13 +1,13 @@
 import React from "react";
 import { Box, VStack } from "@chakra-ui/react";
 import { ITour } from "common";
-import LandmarkBox from "./LandmarkBox";
+import TourBox from "./TourBox";
 
 type Props = {
-  tour: ITour;
+  tours: Array<ITour>;
 };
 
-export default function LandmarkContainer({ tour }: Props) {
+export default function TourContainer({ tours }: Props) {
   return (
     <Box>
       <VStack
@@ -28,8 +28,8 @@ export default function LandmarkContainer({ tour }: Props) {
           },
         }}
       >
-        {tour.landmarks.map((landmark, index) => {
-          return <LandmarkBox landmark={landmark} key={index} />;
+        {tours.map((tour, index) => {
+          return <TourBox tour={tour} key={index} />;
         })}
       </VStack>
     </Box>
