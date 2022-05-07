@@ -20,23 +20,32 @@ import { Link } from "react-router-dom";
 export default function Layout({ children }: PropsWithChildren<{}>) {
   const { isOpen, onToggle, onClose } = useDisclosure();
   return (
-    <VStack>
-      <HStack h={12} bg="cyan.400" w="100%" justify="space-between">
-        <Button variant="solid" colorScheme={"cyan"} onClick={onToggle}>
-          <Center fontSize="xl">
-            <FaBars />
-          </Center>
-        </Button>
-        <Text></Text>
-      </HStack>
-      <Box position="absolute">
-        <Center fontSize="xl">
-          <Text fontWeight="bold" fontSize="xl">
-            TIER
-          </Text>
-        </Center>
+    <Box pos="relative">
+      <Box pt={14} flex={1} height="100%" overflow="auto">
+        {children}
       </Box>
-      <Box flex={1}>{children}</Box>
+      <Box
+        position="fixed"
+        w="100%"
+        top={0}
+        h={14}
+        borderBottom="4px solid white"
+      >
+        <Box position="absolute" top={0} left={0} w="100%" h="100%">
+          <Center h="100%" fontSize="xl">
+            <Text fontWeight="bold" fontSize="xl">
+              TIER
+            </Text>
+          </Center>
+        </Box>
+        <HStack bg="cyan.400" w="100%" h="100%" justify="space-between">
+          <Button variant="solid" colorScheme={"cyan"} onClick={onToggle}>
+            <Center fontSize="xl">
+              <FaBars />
+            </Center>
+          </Button>
+        </HStack>
+      </Box>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
@@ -63,6 +72,6 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </VStack>
+    </Box>
   );
 }
