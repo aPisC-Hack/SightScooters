@@ -5,15 +5,16 @@ import LandmarkBox from "./LandmarkBox";
 
 type Props = {
   landmarks: Array<ILandmark>;
-  setSelectedPlacesCallback?: Function;
-  setDeselectedPlacesCallback?: Function;
+  onCheckedChange?: (landmarkId: string, checked: boolean) => void;
+  checkedIds?: string[];
 };
 
 export default function LandmarkList({
   landmarks,
-  setSelectedPlacesCallback,
-  setDeselectedPlacesCallback,
+  onCheckedChange,
+  checkedIds,
 }: Props) {
+  console.log(checkedIds);
   return (
     <VStack gap={1} padding={2} maxH="100%" w="100%" overflowY="scroll">
       {landmarks.map((landmark, index) => {
@@ -21,9 +22,11 @@ export default function LandmarkList({
           <LandmarkBox
             landmark={landmark}
             key={index}
-            checkable={true}
-            setSelectedPlacesCallback={setSelectedPlacesCallback}
-            setDeselectedPlacesCallback={setDeselectedPlacesCallback}
+            checkable={!!onCheckedChange}
+            checked={!!checkedIds?.includes(landmark.id)}
+            onCheckedChange={(checked) =>
+              onCheckedChange?.(landmark.id, checked)
+            }
           />
         );
       })}

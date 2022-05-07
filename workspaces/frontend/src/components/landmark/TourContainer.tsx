@@ -4,33 +4,16 @@ import { ITour } from "common";
 import TourBox from "./TourBox";
 import { useApiCall } from "../../hooks/useApiCall";
 import { TourQuery } from "../../queries/tour.query";
+import MySpinner from "../MySpinner";
 
 type Props = {};
 
 export default function TourContainer({}: Props) {
   const api = useApiCall(() => TourQuery.getNear());
-
-  if (!api.value) return null;
+  if (!api.value) return <MySpinner />;
   return (
     <Box>
-      <VStack
-        gap={1}
-        padding={2}
-        maxH="100%"
-        w="100%"
-        css={{
-          "&::-webkit-scrollbar": {
-            width: "4px",
-          },
-          "&::-webkit-scrollbar-track": {
-            width: "6px",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            background: "blue",
-            borderRadius: "24px",
-          },
-        }}
-      >
+      <VStack gap={1} padding={2} w="100%" align="stretch">
         {api.value.map((tour, index) => {
           return <TourBox tour={tour} key={index} />;
         })}

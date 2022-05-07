@@ -16,11 +16,7 @@ export default function SimpleLandmarkContainer({
 }: Props) {
   return (
     <Box flex={1}>
-      <LandmarkList
-        landmarks={landmarks}
-        setSelectedPlacesCallback={setSelectedPlacesCallback}
-        setDeselectedPlacesCallback={setDeselectedPlacesCallback}
-      />
+      <LandmarkList landmarks={landmarks} />
     </Box>
   );
 }
