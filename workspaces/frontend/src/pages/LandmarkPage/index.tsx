@@ -57,10 +57,10 @@ export default function LandmarkPage({}: Props) {
         >
           <Button
             width="100%"
-            disabled={!selectedPlaces.length}
+            disabled={selectedPlaces.length > 1}
             onClick={onOpen}
           >
-            Continue
+            Create Custom Tour
           </Button>
         </HStack>
         <CreateTourModal

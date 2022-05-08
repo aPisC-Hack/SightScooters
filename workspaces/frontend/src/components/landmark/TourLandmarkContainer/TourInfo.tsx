@@ -11,8 +11,8 @@ type Props = { tour: ITour };
 
 export default function TourInfo({ tour }: Props) {
   return (
-    <VStack alignItems="start" gap={1} padding={2} maxH="100%" w="100%">
-      <ScaleFadeAnimation>
+    <ScaleFadeAnimation>
+      <VStack alignItems="start" gap={1} padding={2} maxH="100%" w="100%">
         <LandmarkPictureBox
           height="25vh"
           images={tour.landmarks.reduce<Array<string>>(
@@ -20,23 +20,23 @@ export default function TourInfo({ tour }: Props) {
             []
           )}
         />
-      </ScaleFadeAnimation>
-      <Box fontSize="2xl">{tour.name}</Box>
-      <Box>
-        <StarIcon />
-        {" " + tour.rating}({tour.ratingCount})
-      </Box>
-      <Text textAlign="justify">{tour.description}</Text>
-      {tour.isGuided && <GuideInfo tour={tour} />}
-      <Tag
-        fontWeight="semibold"
-        colorScheme={
-          tour.time < 10 ? "green" : tour.time < 20 ? "orange" : "red"
-        }
-      >
-        {tour.time} min
-      </Tag>
-      <ShowcaseTags data={tour} />
-    </VStack>
+        <Box fontSize="2xl">{tour.name}</Box>
+        <Box>
+          <StarIcon />
+          {" " + tour.rating}({tour.ratingCount})
+        </Box>
+        <Text textAlign="justify">{tour.description}</Text>
+        {tour.isGuided && <GuideInfo tour={tour} />}
+        <Tag
+          fontWeight="semibold"
+          colorScheme={
+            tour.time < 10 ? "green" : tour.time < 20 ? "orange" : "red"
+          }
+        >
+          {tour.time} min
+        </Tag>
+        <ShowcaseTags data={tour} />
+      </VStack>
+    </ScaleFadeAnimation>
   );
 }
