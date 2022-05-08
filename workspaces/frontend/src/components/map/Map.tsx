@@ -22,6 +22,7 @@ export default function Map({
 }: PropsWithChildren<IMapProps>) {
   const mapBoxRef = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<mapboxgl.Map | null>(null);
+  const cleanupRef = useRef<Function | null>(null);
 
   useEffect(() => {
     if (!mapBoxRef.current) return;
@@ -37,13 +38,21 @@ export default function Map({
 
     _map.on("load", () => {
       setMap(_map);
+      cleanupRef.current = () => {
+        _map.remove();
+        console.log("Map removed");
+      };
       console.log("Map loaded");
     });
     (window as any).map = _map;
   }, [mapBoxRef.current]);
 
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const [size, setSize] = useState([0, 0]);
+  useEffect(() => {
+    return () => {
+      if (cleanupRef.current) cleanupRef.current();
+    };
+  }, []);
+
   return (
     <MapContext.Provider value={map}>
       <Box w="100%" h="100%" borderRadius={4} overflow="hidden">
