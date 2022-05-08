@@ -60,7 +60,7 @@ export default function BuyButton({ tour, buyCallback }: Props) {
               <Button onClick={() => navigate(`/navigate/${tour.id}`)}>
                 Free Roaming
               </Button>
-              <Button onClick={handleClick}>Buy tour ({tour.price} $)</Button>
+              <Button onClick={handleClick}>Buy tour ({tour.price} Ft)</Button>
             </HStack>
           </ModalBody>
         </ModalContent>
