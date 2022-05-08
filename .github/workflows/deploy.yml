@@ -13,6 +13,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      
+
+      # Runs a single command using the runners shell
+      - name: Remove current cluster
+        run: docker-compose -f docker-compose.yaml down
+
 
       # Runs a single command using the runners shell
       - name: Deploy with docker-compose
