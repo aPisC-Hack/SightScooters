@@ -11,12 +11,12 @@ export default function Index({}: Props) {
   if (!api?.value) return null;
   return api.value.length == 0 ? (
     <>
-      <Heading>Your landmarks</Heading>
+      <Heading>Your tickets</Heading>
       <EmptyPage text="You should take a look at some great places in your neighborhood!" />
     </>
   ) : (
     <>
-      <Heading>Your landmarks</Heading>
+      <Heading>Your tickets</Heading>
       <LandmarkList landmarks={api.value} />
     </>
   );

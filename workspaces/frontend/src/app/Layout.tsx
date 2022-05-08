@@ -67,7 +67,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
                 My tours
               </LinkButton>
               <LinkButton onClose={onClose} to="/mylandmarks">
-                My landmarks
+                My tickets
               </LinkButton>
             </VStack>
           </DrawerBody>
