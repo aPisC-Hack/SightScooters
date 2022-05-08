@@ -5,19 +5,22 @@ services:
       context: .
       dockerfile: ./workspaces/api/Dockerfile
     restart: always
-    scale: 4
+    deploy:
+      replicas: 4
   frontend:
     build:
       context: .
       dockerfile: ./workspaces/frontend/Dockerfile
     restart: always
-    scale: 2
+    deploy:
+      replicas: 2
   content:
     build:
       context: .
       dockerfile: ./workspaces/content/Dockerfile
     restart: always
-    scale: 4
+    deploy:
+      replicas: 4
   proxy:
     build:
       context: .
