@@ -10,7 +10,7 @@ export default function EmptyPage({ text }: Props) {
   return (
     <Center height="100%" width="100%">
       <VStack padding={4}>
-        <MdElectricScooter size="3xl" />
+        <MdElectricScooter size="100%" />
         <Box>{text}</Box>
       </VStack>
     </Center>
