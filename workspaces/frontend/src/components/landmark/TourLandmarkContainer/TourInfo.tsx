@@ -23,7 +23,7 @@ export default function TourInfo({ tour }: Props) {
         <Box fontSize="2xl">{tour.name}</Box>
         <Box>
           <StarIcon />
-          {" " + tour.rating}({tour.ratingCount})
+          {" " + tour.rating} ({tour.ratingCount})
         </Box>
         <Text textAlign="justify">{tour.description}</Text>
         {tour.isGuided && <GuideInfo tour={tour} />}
