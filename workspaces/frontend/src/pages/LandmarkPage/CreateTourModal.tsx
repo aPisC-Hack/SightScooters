@@ -48,7 +48,7 @@ export default function CreateTourModal({
       <ModalContent>
         <ModalBody padding={2}>
           <ModalCloseButton zIndex={999} />
-          <Box height="80vh">
+          <Box>
             <FormControl isRequired>
               <FormLabel>Tour name:</FormLabel>
               <Input
@@ -71,7 +71,10 @@ export default function CreateTourModal({
           <Button
             onClick={async () => {
               const tour = await TourQuery.uploadCustomTour({
-                price: 0,
+                price:
+                  landmarks
+                    .filter((landmark) => selectedPlaces.includes(landmark.id))
+                    .reduce((prev, current) => (prev += current.time), 0) * 100,
                 isGuided: false,
                 tags: [],
                 description: formData.description,
