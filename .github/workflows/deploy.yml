@@ -16,4 +16,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Deploy with docker-compose
-        run: docker-compose -f docker-compose.yaml up --build -d
+        run: docker-compose -f docker-compose.yaml up --build --scale api=4 --scale content=4 --scale frontend=2 -d
