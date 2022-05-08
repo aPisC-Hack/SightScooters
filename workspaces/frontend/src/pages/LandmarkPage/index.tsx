@@ -57,7 +57,7 @@ export default function LandmarkPage({}: Props) {
         >
           <Button
             width="100%"
-            disabled={selectedPlaces.length > 1}
+            disabled={selectedPlaces.length < 2}
             onClick={onOpen}
           >
             Create Custom Tour
