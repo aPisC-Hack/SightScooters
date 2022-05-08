@@ -10,7 +10,7 @@ export default function ScaleFadeAnimation({
   const ref = useRef<HTMLElement>(null);
   const { enterCount } = useInViewport(
     ref as any,
-    { rootMargin: "0px" },
+    { rootMargin: "-100px" },
     { disconnectOnLeave: false },
     {}
   );
